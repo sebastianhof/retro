@@ -4,12 +4,9 @@
   "authors": [
     "Sebastian Hof <mail@sebastianhof.com>"
   ],
-  "description": "Integrated smart home application",
+  "description": "Integrated smarthome application",
   "main": "",
-  "moduleType": [
-    "node"
-  ],
-  "license": "MIT",
+  "license": "Commercial",
   "private": true,
   "ignore": [
     "**/.*",
@@ -19,11 +16,14 @@
     "tests"
   ],
   "dependencies": {
-    "requirejs": "~2.1.20",
-    "angular": "angularjs#~1.4.7",
-    "bootstrap": "~3.3.5",
+    "angular": "~1.4.7",
     "angular-new-router": "~0.5.3",
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.20",
+    "lodash": "~3.10.1",
     "font-awesome": "fontawesome#~4.4.0",
-    "angular-material": "~0.11.4"
+    "jquery.scrollbar": "~0.2.9",
+    "angular-sanitize": "~1.4.7",
+    "angular-translate": "~2.8.1"
   }
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="UTF-8">
+    <title>Homehub: Integrated smart home application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="apple-touch-icon" href="pages/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="Homehub: Integrated smart home application" name="description"/>
+    <meta content="Sebastian Hof" name="author"/>
+    <!-- stylesheets -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link href="layout/css/pages-icons.css" rel="stylesheet" type="text/css"/>
+    <link href="layout/css/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="app/app.css" rel="stylesheet" type="text/css"/>
+
+
+    <script data-main="app/app" src="bower_components/requirejs/require.js"></script>
+</head>
+<body ng-app="homehub" ng-controller="AppController as app" layout="row" class="fixed-header menu-pin">
+
+<div class="full-height">
+
+    <!-- BEGIN SIDEBAR -->
+    <div ng-include src=" 'layout/views/sidebar.html' " include-replace></div>
+    <!-- END SIDEBAR -->
+    <!-- START PAGE-CONTAINER -->
+    <div class="page-container">
+        <!-- START PAGE HEADER WRAPPER -->
+        <div ng-include=" 'layout/views/header.html' ">
+        </div>
+        <!-- END PAGE HEADER WRAPPER -->
+        <!-- START PAGE CONTENT WRAPPER -->
+        <div class="page-content-wrapper">
+            <!-- START PAGE CONTENT -->
+            <div class="content">
+                <div class="full-height full-width" ui-view>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT -->
+            <div ng-include=" 'layout/views/footer.html'">
+            </div>
+        </div>
+        <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!-- START OVERLAY -->
+    <div ng-include src=" 'layout/views/quick_search.html' " include-replace>
+    </div>
+    <!-- END OVERLAY -->
+
+</div>
+
+</body>
+</html>
