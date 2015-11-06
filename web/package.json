@@ -1,0 +1,16 @@
+{
+  "name": "homehub-web",
+  "version": "0.0.1",
+  "description": "Integrated smart home application",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Hof <mail@sebastianhof.com>",
+  "license": "Commercial"
+}

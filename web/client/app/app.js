@@ -30,15 +30,25 @@ require([
     'angular-new-router',
     'angular-sanitize',
     'components/layout/layout',
-    'components/dashboard/dashboard'
+    'components/dashboard/dashboard',
+    'components/climate/climate',
+    'components/lighting/lighting',
+    'components/appliances/appliances',
+    'components/security/security',
+    'components/settings/settings'
 ], function (angular) {
 
     var app = angular
-        .module('homehub', ['ngNewRouter', 'ngSanitize', 'homehub.layout', 'homehub.dashboard'])
+        .module('homehub', ['ngNewRouter', 'ngSanitize', 'homehub.layout', 'homehub.dashboard', 'homehub.climate', 'homehub.lighting', 'homehub.appliances', 'homehub.security', 'homehub.settings'])
         .controller('AppController', ['$router', '$scope', function ($router, $scope) {
             $router.config([
                 {path: '/', redirectTo: '/dashboard'},
-                {path: '/dashboard', component: 'dashboard'}
+                {path: '/dashboard', component: 'dashboard'},
+                {path: '/climate', component: 'climate'},
+                {path: '/lighting', component: 'lighting'},
+                {path: '/appliances', component: 'appliances'},
+                {path: '/security', component: 'security'},
+                {path: '/settings', component: 'settings'}
             ]);
 
             // Broadcasts a message to pgSearch directive to toggle search overlay
