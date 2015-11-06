@@ -1,0 +1,3 @@
+[submodule "openhab"]
+	path = openhab
+	url = https://github.com/openhab/openhab.git
