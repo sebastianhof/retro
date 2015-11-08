@@ -12,5 +12,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Hof <mail@sebastianhof.com>",
-  "license": "Commercial"
+  "license": "Homehub License"
 }

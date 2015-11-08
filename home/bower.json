@@ -1,0 +1,32 @@
+{
+  "name": "homehub-web",
+  "homepage": "https://github.com/sebastianhof/homehub",
+  "authors": [
+    "Sebastian Hof <mail@sebastianhof.com>"
+  ],
+  "description": "Integrated smarthome application",
+  "main": "",
+  "license": "Commercial",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "requirejs": "~2.1.20",
+    "lodash": "~3.10.1",
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery.scrollbar": "~0.2.9",
+    "angular-sanitize": "~1.4.7",
+    "angular-translate": "~2.8.1",
+    "oclazyload": "~1.0.8",
+    "nouislider": "~8.1.0",
+    "switchery": "~0.8.1",
+    "jquery-minicolors": "~2.2.1"
+  }
+}

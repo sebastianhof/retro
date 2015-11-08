@@ -1,0 +1,71 @@
+<div class="container-fluid container-fixed-lg ">
+    <ul class="breadcrumb">
+        <li>
+            <a href="#/">Home</a>
+        </li>
+        <li><a href="#/settings" class="active">Settings</a>
+        </li>
+    </ul>
+    <!-- END BREADCRUMB -->
+</div>
+<div class="container-fluid container-fixed-lg">
+
+    <div class="panel panel-transparent ">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-tabs-left nav-tabs-fillup">
+            <li class="active">
+                <a data-toggle="tab" pg-tab href="#tab-fillup1"><span>Devices</span></a>
+            </li>
+            <li>
+                <a data-toggle="tab" pg-tab href="#tab-fillup2"><span>Locations</span></a>
+            </li>
+            <li>
+                <a data-toggle="tab" pg-tab href="#tab-fillup3"><span>Rules</span></a>
+            </li>
+            <li>
+                <a data-toggle="tab" pg-tab href="#tab-fillup4"><span>Account</span></a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-fillup1">
+                <div class="row column-seperation">
+                    <div class="col-md-12">
+
+                        <div ui-view="devices"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-fillup2">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div ui-view="locations"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-fillup3">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div ui-view="rules"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab-fillup4">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div ui-view="account"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
