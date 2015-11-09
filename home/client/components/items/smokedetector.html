@@ -1,0 +1,24 @@
+<div class="panel no-border bg-success widget" ng-class="{ 'bg-success': item.values.smoke == false, 'bg-danger': item.values.smoke == true }">
+
+    <div class="panel-heading">
+        <div class="panel-title">{{::item.type}}</div>
+    </div>
+
+    <div class="panel-body">
+        <div class="padding-25">
+            <h1 class="text-white semi-bold" ng-if="item.values.smoke == true">Alarm</h1>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <p class="pull-left">CO<sub>2</sub></p>
+
+                    <p class="pull-right bold">{{::item.values.co2}}&nbsp;ppm</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

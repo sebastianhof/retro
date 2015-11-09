@@ -6,10 +6,11 @@ require.config({
         'angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router.min',
         'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap.min',
         'jquery': 'bower_components/jquery/dist/jquery.min',
+        'jquery-minicolors': 'bower_components/jquery-minicolors/jquery.minicolors.min',
         'jquery.scrollbar': 'bower_components/jquery.scrollbar/jquery.scrollbar.min',
         'lodash': 'bower_components/lodash/lodash.min',
-        'nouislider': 'bower_components/nouislider/distribute/nouislider',
-        'pages': 'layout/js/pages'
+        'nouislider': 'bower_components/nouislider/distribute/nouislider.min',
+        'pages': 'layout/js/pages',
     },
     shim: {
         'angular': {
@@ -19,6 +20,7 @@ require.config({
         'angular-sanitize': ['angular'],
         'angular-ui-router': ['angular'],
         'bootstrap': ['jquery'],
+        'jquery-minicolors': 'jquery',
         'jquery.scrollbar': ['jquery'],
         'nouislider': ['jquery'],
         'pages': ['jquery']

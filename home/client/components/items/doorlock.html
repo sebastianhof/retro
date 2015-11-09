@@ -1,0 +1,16 @@
+<div class="panel no-border bg-master widget widget-6">
+    <div class="panel-heading">
+        <div class="panel-title">{{::item.title}} {{::item.type}}</div>
+    </div>
+    <div class="panel-body">
+        <div class="padding-25">
+            <h1 class="text-white semi-bold" ng-if="item.values.closed == false">OPEN</h1>
+
+            <h1 class="text-white semi-bold" ng-if="item.values.closed == true">CLOSED</h1>
+            <input type="checkbox" class="js-switch" homehub-switch
+                   item-id="item.id"
+                   value="item.values.open"
+                   on-set="security.setValue"/>
+        </div>
+    </div>
+</div>

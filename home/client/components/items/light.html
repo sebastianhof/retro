@@ -1,0 +1,16 @@
+<div class="panel no-border bg-master widget widget-6">
+    <div class="panel-heading">
+        <div class="panel-title">{{::item.type}}</div>
+    </div>
+    <div class="panel-body">
+        <div class="padding-25">
+            <h1 class="text-white semi-bold" ng-if="item.values.on == false">OFF</h1>
+
+            <h1 class="text-white semi-bold" ng-if="item.values.on == true">ON</h1>
+            <input type="checkbox" class="js-switch" homehub-switch
+                   item-id="item.id"
+                   value="item.values.on"
+                   on-set="lighting.setValue"/>
+        </div>
+    </div>
+</div>

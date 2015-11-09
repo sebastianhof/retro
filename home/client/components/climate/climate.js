@@ -1,9 +1,9 @@
-define(['angular', 'lodash', 'components/settings/locations/locations'], function(angular, _) {
+define(['angular', 'lodash', 'components/settings/locations/locations'], function (angular, _) {
 
     angular
         .module('homehub.climate', ['homehub.settings.locations'])
 
-        .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('climate', {
                 url: "/climate",
                 controller: 'ClimateController',
@@ -11,42 +11,6 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
                 templateUrl: "components/climate/climate.html"
             });
         }])
-        .directive('homehubThermostatSlider', function() {
-            return {
-                scope: {
-                    itemId: '=',
-                    value: '=',
-                    max: '=',
-                    min: '=',
-                    onSet: '='
-                },
-                link: function(scope, elem) {
-
-                    require(['nouislider'], function(noUiSlider) {
-
-                        noUiSlider.create(elem[0], {
-                            start: [scope.value],
-                            range: {
-                                min: 0,
-                                '1%': scope.min,
-                                '99%': scope.max,
-                                max: 100,
-
-                            },
-                            step: 1
-                        });
-
-                        elem[0].noUiSlider.on('set', function(value){
-                            if (scope.onSet) scope.onSet(scope.itemId, 'temp', parseInt(value));
-                        });
-
-                    });
-
-
-
-                }
-            }
-        })
 
         .controller('ClimateController', ['$timeout', 'LocationService', function ($timeout, LocationService) {
             var controller = this;
@@ -90,33 +54,33 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
             ];
             this.filteredItems = this.items;
 
-            this.resetFilter = function() {
+            this.resetFilter = function () {
                 this.filteredItems = this.items;
             };
 
             this.locations = {};
             // add location filter
-            _.forEach(this.items, function(item) {
+            _.forEach(this.items, function (item) {
                 if (controller.locations[item.locationId] == null) {
-                 LocationService.getLocation(item.locationId).then(function(location) {
-                     controller.locations[item.locationId] = location;
-                 });
+                    LocationService.getLocation(item.locationId).then(function (location) {
+                        controller.locations[item.locationId] = location;
+                    });
                 }
             });
 
-            this.filterLocation = function(locationId) {
-              this.filteredItems = _.filter(this.items, {locationId: locationId});
+            this.filterLocation = function (locationId) {
+                this.filteredItems = _.filter(this.items, {locationId: locationId});
             };
 
 
-            this.setValue = function(itemId, key, value) {
+            this.setValue = function (itemId, key, value) {
 
                 // TODO: Send command to server
                 if (key == 'temp') {
 
-                    var item = _.find(controller.items, { id: itemId });
+                    var item = _.find(controller.items, {id: itemId});
                     if (item != null) {
-                        $timeout(function() {
+                        $timeout(function () {
                             item.values.currentTemp = value
                         });
 
@@ -125,7 +89,8 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
 
             }
 
-        }]);
+        }])
+
 
 
 });

@@ -10,124 +10,15 @@
     <div class="panel-heading">
         <div class="panel-title">Add a device</div>
     </div>
+    <div class="panel-body">
 
-        <!-- max!cube -->
-        <div class="gallery-item " ng-click="showItemDetails()">
-            <img src="layout/img/devices/max!cube.jpg" alt="" class="image-responsive-height">
-            <div class="overlayer bottom-left full-width">
-                <div class="overlayer-wrapper item-info ">
-                    <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-                        <div class="">
-                            <p class="pull-left bold text-white fs-14 p-t-10">Max!Cube</p>
-                            <h5 class="pull-right"><i class="fa fa-inverse fa-sun-o"></i></h5>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="m-t-10">
-                            <div class="pull-right m-t-10">
-                                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-4 m-b-20" ng-repeat="device in devices.addDevices">
+                <homehub-add-device device="device"></homehub-add-device>
             </div>
         </div>
 
-        <!-- philips hue -->
-        <div class="gallery-item " ng-click="showItemDetails()">
-            <img src="layout/img/devices/philipshue.jpg" alt="" class="image-responsive-height">
-            <div class="overlayer bottom-left full-width">
-                <div class="overlayer-wrapper item-info ">
-                    <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-                        <div class="">
-                            <p class="pull-left bold text-white fs-14 p-t-10">Philips Hue Bridge</p>
-                            <h5 class="pull-right"><i class="fa fa-inverse fa-lightbulb-o"></i></h5>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="m-t-10">
-                            <div class="pull-right m-t-10">
-                                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- lifx -->
-        <div class="gallery-item " ng-click="showItemDetails()">
-            <img src="layout/img/devices/lifx.jpg" alt="" class="image-responsive-height">
-            <div class="overlayer bottom-left full-width">
-                <div class="overlayer-wrapper item-info ">
-                    <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-                        <div class="">
-                            <p class="pull-left bold text-white fs-14 p-t-10">Lifx</p>
-                            <h5 class="pull-right"><i class="fa fa-inverse fa-lightbulb-o"></i></h5>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="m-t-10">
-                            <div class="pull-right m-t-10">
-                                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
-        <!-- belkin wemo -->
-        <div class="gallery-item " ng-click="showItemDetails()">
-            <img src="layout/img/devices/wemo.jpg" alt="" class="image-responsive-height">
-            <div class="overlayer bottom-left full-width">
-                <div class="overlayer-wrapper item-info ">
-                    <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-                        <div class="">
-                            <p class="pull-left bold text-white fs-14 p-t-10">Belkin Wemo</p>
-                            <h5 class="pull-right"><i class="fa fa-inverse fa-plug"></i></h5>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="m-t-10">
-                            <div class="pull-right m-t-10">
-                                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- withings -->
-        <div class="gallery-item " ng-click="showItemDetails()">
-            <img src="layout/img/devices/withings.jpg" alt="" class="image-responsive-height">
-            <div class="overlayer bottom-left full-width">
-                <div class="overlayer-wrapper item-info ">
-                    <div class="gradient-grey p-l-20 p-r-20 p-t-20 p-b-5">
-                        <div class="">
-                            <p class="pull-left bold text-white fs-14 p-t-10">Withings</p>
-                            <h5 class="pull-right"><i class="fa fa-inverse fa-plug"></i></h5>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="m-t-10">
-                            <div class="pull-right m-t-10">
-                                <button class="btn btn-white btn-xs btn-mini bold fs-14" type="button">+</button>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
 
 </div>

@@ -4,6 +4,7 @@ define([
     'angular-ui-router',
     'angular-sanitize',
     'components/layout/layout',
+    'components/items/items',
     'components/dashboard/dashboard',
     'components/climate/climate',
     'components/lighting/lighting',
@@ -15,6 +16,7 @@ define([
     var app = angular
         .module('homehub', ['ngSanitize', 'ui.router',
             'homehub.layout',
+            'homehub.items',
             'homehub.dashboard',
             'homehub.climate',
             'homehub.lighting',

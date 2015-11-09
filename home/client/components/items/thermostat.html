@@ -1,0 +1,24 @@
+<div class="panel no-border bg-master widget widget-6">
+
+    <div class="panel-heading">
+        <div class="panel-title">{{::item.type}}</div>
+    </div>
+
+    <div class="panel-body">
+        <div class="padding-25">
+            <h1 class="text-white semi-bold" ng-if="item.values.currentTemp == 0">OFF</h1>
+
+            <h1 class="text-white semi-bold" ng-if="item.values.currentTemp != 0 && item.values.currentTemp != 100">
+                {{item.values.currentTemp}}°</h1>
+            <br/>
+
+            <div homehub-thermostat-slider class="bg-master"
+                 item-id="item.id"
+                 value="item.values.currentTemp"
+                 max="item.values.maxTemp"
+                 min="item.values.minTemp"
+                 on-set="climate.setValue"></div>
+        </div>
+    </div>
+
+</div>
