@@ -2,6 +2,16 @@
     <div class="panel-heading">
         <div class="panel-title">Your devices</div>
     </div>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-3 m-b-20" ng-repeat="device in devices.devices">
+                <homehub-edit-device device="device"></homehub-edit-device>
+            </div>
+        </div>
+
+    </div>
+
 </div>
 
 <br/>
@@ -13,7 +23,7 @@
     <div class="panel-body">
 
         <div class="row">
-            <div class="col-md-4 m-b-20" ng-repeat="device in devices.addDevices">
+            <div class="col-md-3 m-b-20" ng-repeat="device in devices.addDevices">
                 <homehub-add-device device="device"></homehub-add-device>
             </div>
         </div>

@@ -1,0 +1,54 @@
+<div class="modal-header clearfix text-left">
+    <button type="button" class="close" aria-hidden="true" ng-click="modalInstance.close()"><i
+            class="pg-close fs-14"></i>
+    </button>
+    <h5>Add Max!Cube</h5>
+</div>
+
+<form name="form" ng-submit="modalInstance.submit(form)">
+
+    <div class="modal-body">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+
+                <h5>Instruction</h5>
+
+                <p>Provide the IP Address of your Max!Cube.</p>
+
+            </div>
+            <div class="col-sm-8">
+
+                <fieldset class="form-group-attached">
+                    <label>General Settings</label>
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
+                                <label>Max!Cube IP Address</label>
+                                <input type="text" ng-model="modalInstance.data.ip" class="form-control" required>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-cons pull-right inline">
+            Add
+        </button>
+        <button type="button" class="btn btn-default btn-cons pull-right inline" ng-click="modalInstance.close()">
+            Cancel
+        </button>
+    </div>
+
+</form>

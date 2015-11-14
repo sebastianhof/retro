@@ -3,6 +3,7 @@ window.name = 'NG_DEFER_BOOTSTRAP!';
 define([
     'angular-ui-router',
     'angular-sanitize',
+    'angular-bootstrap',
     'components/layout/layout',
     'components/items/items',
     'components/dashboard/dashboard',
@@ -14,7 +15,7 @@ define([
 ], function () {
 
     var app = angular
-        .module('homehub', ['ngSanitize', 'ui.router',
+        .module('homehub', ['ngSanitize', 'ui.router', 'ui.bootstrap',
             'homehub.layout',
             'homehub.items',
             'homehub.dashboard',

@@ -1,0 +1,60 @@
+<script type="text/ng-template" id="lifxDeviceRow">
+
+    <div class="col-sm-4">
+        <div class="form-group form-group-default">
+            <label>Device title</label>
+            <input type="text" ng-model="row.title" class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group form-group-default">
+            <label>Device id</label>
+            <input type="text" ng-model="row.id" class="form-control">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group form-group-default">
+            <label>Device location</label>
+            <select ng-model="row.location" class="form-control"></select>
+        </div>
+    </div>
+
+</script>
+
+<div class="modal-header clearfix text-left">
+    <button type="button" class="close" aria-hidden="true" ng-click="modalInstance.close()"><i
+            class="pg-close fs-14"></i>
+    </button>
+    <h5>Add Lifx</h5>
+</div>
+
+<form name="form" ng-submit="modalInstance.submit(form)">
+
+    <div class="modal-body">
+
+        <div class="row">
+
+            <div class="col-sm-4">
+
+                <h5>Instruction</h5>
+
+            </div>
+            <div class="col-sm-8">
+
+                <homehub-add-device-rows template="lifxDeviceRow" model="modalInstance.data" field="devices"
+                                         label="Lifx Devices"></homehub-add-device-rows>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary btn-cons pull-right inline" data-dismiss="modal">
+            Add
+        </button>
+        <button type="button" class="btn btn-default btn-cons pull-right inline" ng-click="modalInstance.close()">Cancel
+        </button>
+    </div>
+
+</form>

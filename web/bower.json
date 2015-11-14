@@ -24,6 +24,8 @@
     "font-awesome": "fontawesome#~4.4.0",
     "jquery.scrollbar": "~0.2.9",
     "angular-sanitize": "~1.4.7",
-    "angular-translate": "~2.8.1"
+    "angular-translate": "~2.8.1",
+    "Swiper": "swiper#~3.2.0",
+    "PACE": "pace#~1.0.2"
   }
 }

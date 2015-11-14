@@ -12,7 +12,7 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
             });
         }])
 
-        .controller('ClimateController', ['$timeout', 'LocationService', function ($timeout, LocationService) {
+        .controller('ClimateController', ['$timeout', '$http', 'LocationService', function ($timeout, $http, LocationService) {
             var controller = this;
 
             this.items = [
@@ -88,6 +88,11 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
                 }
 
             }
+
+            $http.get('api/items/climate').success(function(data) {
+                controller.items = data.items;
+                controller.filteredItems = controller.items;
+            })
 
         }])
 

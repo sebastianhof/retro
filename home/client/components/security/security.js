@@ -45,7 +45,7 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
                 },
                 {
                     id: 3,
-                    type: 'window',
+                    type: 'windowcontact',
                     title: '',
                     locationId: 1,
                     values: {
