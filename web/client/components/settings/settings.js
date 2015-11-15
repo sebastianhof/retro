@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.settings', [])
+        .module('retro.settings', [])
         .controller('SettingsController', [SettingsController]);
 
     function SettingsController () {

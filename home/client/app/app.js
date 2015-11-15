@@ -15,15 +15,15 @@ define([
 ], function () {
 
     var app = angular
-        .module('homehub', ['ngSanitize', 'ui.router', 'ui.bootstrap',
-            'homehub.layout',
-            'homehub.items',
-            'homehub.dashboard',
-            'homehub.climate',
-            'homehub.lighting',
-            'homehub.appliances',
-            'homehub.security',
-            'homehub.settings'
+        .module('retro', ['ngSanitize', 'ui.router', 'ui.bootstrap',
+            'retro.layout',
+            'retro.items',
+            'retro.dashboard',
+            'retro.climate',
+            'retro.lighting',
+            'retro.appliances',
+            'retro.security',
+            'retro.settings'
         ])
 
         //.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
@@ -57,7 +57,7 @@ define([
 
     app.bootstrap = function () {
         angular.element().ready(function () {
-            angular.resumeBootstrap(['homehub']);
+            angular.resumeBootstrap(['retro']);
         });
     };
 

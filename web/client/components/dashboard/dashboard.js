@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.dashboard', [])
+        .module('retro.dashboard', [])
         .controller('DashboardController', [DashboardController]);
 
     function DashboardController () {

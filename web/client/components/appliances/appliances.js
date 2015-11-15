@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.appliances', [])
+        .module('retro.appliances', [])
         .controller('AppliancesController', [AppliancesController]);
 
     function AppliancesController () {

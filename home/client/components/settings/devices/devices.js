@@ -3,7 +3,7 @@ define(['angular'], function (angular) {
     var MAXCUBE = 0;
 
     angular
-        .module('homehub.settings.devices', [])
+        .module('retro.settings.devices', [])
         .controller('DeviceSettingsController', ['$scope', '$http', function ($scope, $http) {
             var controller = this;
             this.devices = [];
@@ -72,7 +72,7 @@ define(['angular'], function (angular) {
 
 
         }])
-        .directive('homehubAddDevice', function () {
+        .directive('retroAddDevice', function () {
             return {
                 replace: true,
                 template: '<div class="gallery-item " ng-click="addDevice.setupDevice()" style="background-color: whitesmoke">\
@@ -150,7 +150,7 @@ define(['angular'], function (angular) {
             }
         })
 
-        .directive('homehubEditDevice', function () {
+        .directive('retroEditDevice', function () {
             return {
                 replace: true,
                 template: '<div class="gallery-item " ng-click="editDevice.editDevice()" style="background-color: whitesmoke">\
@@ -238,7 +238,7 @@ define(['angular'], function (angular) {
             }
         })
 
-        .directive('homehubItemsRows', function () {
+        .directive('retroItemsRows', function () {
             return {
                 scope: {
                     template: '@',

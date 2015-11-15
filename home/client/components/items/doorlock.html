@@ -7,7 +7,7 @@
             <h1 class="text-white semi-bold" ng-if="item.values.closed == false">OPEN</h1>
 
             <h1 class="text-white semi-bold" ng-if="item.values.closed == true">CLOSED</h1>
-            <input type="checkbox" class="js-switch" homehub-switch
+            <input type="checkbox" class="js-switch" retro-switch
                    item-id="item.id"
                    value="item.values.open"
                    on-set="security.setValue"/>

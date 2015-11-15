@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="utf-8"/>
     <title>Retro: Signin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="apple-touch-icon" href="app/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="app/ico/76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="app/ico/120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="app/ico/152.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -21,7 +21,7 @@
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"
           media="screen"/>
     <link href="app/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="app/css/pages.css" rel="stylesheet" type="text/css" />
+    <link class="main-stylesheet" href="app/css/pages.css" rel="stylesheet" type="text/css"/>
 
     <script data-main="public/require-config" src="bower_components/requirejs/require.js"></script>
 </head>
@@ -31,14 +31,22 @@
     <!-- START Login Background Pic Wrapper-->
     <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="public/retro-bg.jpg" data-src="public/retro-bg.jpg" data-src-retina="public/retro-bg.jpg" alt="" class="lazy">
+        <img src="public/retro-bg.jpg" data-src="public/retro-bg.jpg" data-src-retina="public/retro-bg.jpg" alt=""
+             class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
             <h2 class="semi-bold text-white">
                 Retro</h2>
+
             <p class="small">
-                © 2015 sebastianhof.com
+                <span class="hint-text">Copyright © 2015</span>
+                <span class="font-montserrat">Retro</span>.
+                <span class="hint-text">All rights reserved.</span>
+                <span class="sm-block">
+                    <a href="" class="m-l-10 m-r-10">Terms of use</a> |
+                    <a href="" class="m-l-10">Privacy Policy</a>
+                </span>
             </p>
         </div>
         <!-- END Background Caption-->
@@ -48,34 +56,23 @@
     <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
             <!--<img src="app/img/logo.png" alt="logo" data-src="app/img/logo.png" data-src-retina="app/img/logo_2x.png" width="78" height="22">-->
-            <p class="p-t-35">Sign into retro home control</p>
+            <p class="p-t-35">Sign into retro smart control</p>
             <!-- START Login Form -->
-            <form id="form-login" class="p-t-15" role="form" action="/api/signin">
-                <!-- START Form Control-->
+            <form id="form-login" class="p-t-15" role="form" action="/api/signin" method="post">
                 <div class="form-group form-group-default">
                     <label>Login</label>
+
                     <div class="controls">
                         <input type="text" name="username" placeholder="User Name" class="form-control" required>
                     </div>
                 </div>
-                <!-- END Form Control-->
-                <!-- START Form Control-->
                 <div class="form-group form-group-default">
                     <label>Password</label>
+
                     <div class="controls">
                         <input type="password" class="form-control" name="password" placeholder="Credentials" required>
                     </div>
                 </div>
-                <!-- START Form Control-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-6 no-padding">-->
-                        <!--<div class="checkbox ">-->
-                            <!--<input type="checkbox" value="1" id="checkbox1">-->
-                            <!--<label for="checkbox1">Keep Me Signed in</label>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!-- END Form Control-->
                 <button class="btn btn-default btn-cons m-t-10" type="submit">Sign in</button>
             </form>
             <!--END Login Form-->
@@ -86,8 +83,7 @@
 <!-- END PAGE CONTAINER -->
 
 <script>
-    $(function()
-    {
+    $(function () {
         $('#form-login').validate()
     })
 </script>

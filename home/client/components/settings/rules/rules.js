@@ -1,7 +1,7 @@
 define(['angular'], function (angular) {
 
     angular
-        .module('homehub.settings.rules', [])
+        .module('retro.settings.rules', [])
         .controller('RuleSettingsController', ['$scope', function ($scope) {
 
 

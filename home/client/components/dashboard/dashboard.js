@@ -1,7 +1,7 @@
 define(['angular'], function(angular) {
 
     angular
-        .module('homehub.dashboard', [])
+        .module('retro.dashboard', [])
 
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("/dashboard");

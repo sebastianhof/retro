@@ -1,5 +1,5 @@
 {
-  "name": "homehub-web",
+  "name": "retro-web",
   "version": "0.0.1",
   "description": "Integrated smart home application",
   "main": "index.js",
@@ -12,5 +12,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Hof <mail@sebastianhof.com>",
-  "license": "Homehub License"
+  "license": "Retro License"
 }

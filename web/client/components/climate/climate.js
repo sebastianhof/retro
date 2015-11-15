@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.climate', [])
+        .module('retro.climate', [])
         .controller('ClimateController', [ClimateController]);
 
     function ClimateController () {

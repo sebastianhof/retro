@@ -1,7 +1,7 @@
 define(['angular', 'lodash', 'components/settings/locations/locations'], function (angular, _) {
 
     angular
-        .module('homehub.climate', ['homehub.settings.locations'])
+        .module('retro.climate', ['retro.settings.locations'])
 
         .config(['$stateProvider', function ($stateProvider) {
             $stateProvider.state('climate', {

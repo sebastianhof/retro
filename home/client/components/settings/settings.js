@@ -6,11 +6,11 @@ define(['angular',
 ], function (angular) {
 
     angular
-        .module('homehub.settings', [
-            'homehub.settings.devices',
-            'homehub.settings.locations',
-            'homehub.settings.rules',
-            'homehub.settings.account'
+        .module('retro.settings', [
+            'retro.settings.devices',
+            'retro.settings.locations',
+            'retro.settings.rules',
+            'retro.settings.account'
         ])
 
         .config(['$stateProvider', function ($stateProvider) {

@@ -1,8 +1,8 @@
 define(['angular'], function (angular) {
 
-    angular.module('homehub.items', [])
+    angular.module('retro.items', [])
 
-        .directive('homehubSwitch', function () {
+        .directive('retroSwitch', function () {
             return {
                 scope: {
                     itemId: '=',
@@ -26,7 +26,7 @@ define(['angular'], function (angular) {
 
         // climate
 
-        .directive('homehubThermostatSlider', function () {
+        .directive('retroThermostatSlider', function () {
             return {
                 scope: {
                     itemId: '=',
@@ -61,7 +61,7 @@ define(['angular'], function (angular) {
         })
 
         // lighting
-        .directive('homehubColorPicker', function () {
+        .directive('retroColorPicker', function () {
             return {
                 scope: {
                     itemId: '=',
@@ -88,7 +88,7 @@ define(['angular'], function (angular) {
             }
         })
 
-        .directive('homehubDimmerSlider', function () {
+        .directive('retroDimmerSlider', function () {
             return {
                 scope: {
                     itemId: '=',

@@ -1,7 +1,7 @@
 define(['angular'], function (angular) {
 
     angular
-        .module('homehub.settings.locations', [])
+        .module('retro.settings.locations', [])
         .controller('LocationSettingsController', ['$scope', function ($scope) {
 
 

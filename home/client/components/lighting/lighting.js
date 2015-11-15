@@ -1,7 +1,7 @@
 define(['angular', 'components/settings/locations/locations'], function (angular) {
 
     angular
-        .module('homehub.lighting', ['homehub.settings.locations'])
+        .module('retro.lighting', ['retro.settings.locations'])
 
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             $stateProvider.state('lighting', {

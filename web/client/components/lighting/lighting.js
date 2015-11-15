@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.lighting', [])
+        .module('retro.lighting', [])
         .controller('LightingController', [LightingController]);
 
     function LightingController () {

@@ -39,7 +39,7 @@ require([
 ], function (angular) {
 
     var app = angular
-        .module('homehub', ['ngNewRouter', 'ngSanitize', 'homehub.layout', 'homehub.dashboard', 'homehub.climate', 'homehub.lighting', 'homehub.appliances', 'homehub.security', 'homehub.settings'])
+        .module('retro', ['ngNewRouter', 'ngSanitize', 'retro.layout', 'retro.dashboard', 'retro.climate', 'retro.lighting', 'retro.appliances', 'retro.security', 'retro.settings'])
         .controller('AppController', ['$router', '$scope', function ($router, $scope) {
             $router.config([
                 {path: '/', redirectTo: '/dashboard'},
@@ -69,7 +69,7 @@ require([
         }]);
 
     angular.element().ready(function () {
-        angular.resumeBootstrap(['homehub']);
+        angular.resumeBootstrap(['retro']);
     });
 
     return app;

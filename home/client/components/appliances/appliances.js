@@ -1,7 +1,7 @@
 define(['angular', 'components/settings/locations/locations'], function(angular) {
 
     angular
-        .module('homehub.appliances', ['homehub.settings.locations'])
+        .module('retro.appliances', ['retro.settings.locations'])
 
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
             $stateProvider.state('appliances', {

@@ -1,7 +1,7 @@
 require(['angular'], function(angular) {
 
     angular
-        .module('homehub.security', [])
+        .module('retro.security', [])
         .controller('SecurityController', [SecurityController]);
 
     function SecurityController () {

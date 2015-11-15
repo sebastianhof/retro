@@ -1,7 +1,7 @@
 define(['angular', 'lodash', 'components/settings/locations/locations'], function (angular, _) {
 
     angular
-        .module('homehub.security', ['homehub.settings.locations'])
+        .module('retro.security', ['retro.settings.locations'])
 
         .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider) {
             $stateProvider.state('security', {
