@@ -1,2 +1,2 @@
-# homehub
-Smart home application
+# retro
+Smart remote control application

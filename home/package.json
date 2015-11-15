@@ -1,0 +1,34 @@
+{
+  "name": "retro-home",
+  "version": "0.0.1",
+  "description": "Integrated smart home application",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "lifx-api": "^1.0.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "nedb": "^1.4.0",
+    "node-schedule": "^0.3.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "philips-hue": "^0.1.2",
+    "q": "^1.4.1",
+    "wemo-client": "^0.4.0",
+    "withings-lib": "^0.2.2"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-typescript": "^0.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Hof <mail@sebastianhof.com>",
+  "license": "Retro License"
+}
