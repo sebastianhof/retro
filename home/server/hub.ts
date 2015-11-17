@@ -27,7 +27,7 @@ export class RetroHub {
             RetroHub.instance = new RetroHub();
         }
         // TODO: autodetect devices
-        Maxcube.setup('192.168.2.38');
+        // Maxcube.setup('192.168.2.38');
     }
 
     public on(event, func:Function) {

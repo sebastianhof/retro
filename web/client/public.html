@@ -5,10 +5,10 @@
     <meta charset="utf-8"/>
     <title>Retro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="apple-touch-icon" href="public/layout/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="public/layout/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="public/layout/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="public/layout/ico/152.png">
+    <link rel="apple-touch-icon" href="public/ico/60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="public/ico/76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="public/ico/120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="public/ico/152.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -17,14 +17,15 @@
     <meta content="" name="author"/>
     <!-- BEGIN PLUGINS -->
     <!--<link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"/>-->
-    <!--<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
-    <!--<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>-->
-    <!--<link href="assets/plugins/swiper/css/swiper.css" rel="stylesheet" type="text/css" media="screen"/>-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/Swiper/dist/css/swiper.min.css" rel="stylesheet" type="text/css" media="screen"/>
     <!-- END PLUGINS -->
     <!-- BEGIN PAGES CSS -->
-    <link class="main-stylesheet" href="public/layout/css/pages.css" rel="stylesheet" type="text/css"/>
-    <link class="main-stylesheet" href="public/layout/css/pages-icons.css" rel="stylesheet" type="text/css"/>
+    <link class="main-stylesheet" href="public/css/pages.css" rel="stylesheet" type="text/css"/>
+    <link class="main-stylesheet" href="public/css/pages-icons.css" rel="stylesheet" type="text/css"/>
     <!-- BEGIN PAGES CSS -->
+    <script data-main="public/require-config" src="bower_components/requirejs/require.js"></script>
 </head>
 <body class="pace-dark">
 <!-- BEGIN HEADER -->
@@ -36,7 +37,7 @@
             <!-- .header-inner Allows to vertically Align elements to the Center-->
             <div class="header-inner">
                 <!-- BEGIN LOGO -->
-                <img src="public/layout/images/logo_white.png" width="152" height="21"
+                <img src="public/images/logo_white.png" width="152" height="21"
                      data-src-retina="public/layout/images/logo_white_2x.png" alt="">
             </div>
         </div>
@@ -68,132 +69,19 @@
                     <li>
                         <a href="#/" data-text="Home" class="active">Home </a>
                     </li>
-                    <li class="mega">
-                        <a href="javascript:;" data-text="Elements">Elements <i class="pg-arrow_minimize m-l-5"></i></a>
-                        <span class="arrow"></span>
-                        <nav class="mega">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4 p-l-25 sm-p-l-0 hidden-sm hidden-xs">
-                                        <h6 class="block-title fs-12 no-margin">Pages UI Bundle</h6>
-
-                                        <h2 class="m-t-20">A new page, <br>a new beginning...</h2>
-
-                                        <p class="small font-arial hint-text no-margin">Exclusively available at Envato
-                                            Marketplace</p>
-                                        <a href="#" class="btn btn-black font-montserrat fs-11 all-caps m-t-35">Buy
-                                            now</a>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h6 class="sub-menu-heading">UI Elements</h6>
-                                                <ul class="sub-menu">
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#color"
-                                                           target="_blank">Colors</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#icons"
-                                                           target="_blank">Icons</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#buttons"
-                                                           target="_blank">Buttons</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#modals"
-                                                           target="_blank">Modals</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#progress_bars"
-                                                           target="_blank">Progress &amp; Activity</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#accordians"
-                                                           target="_blank">Accordians</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#tabs"
-                                                           target="_blank">Tabs</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h6 class="sub-menu-heading">Forms</h6>
-                                                <ul class="sub-menu">
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#form_elements"
-                                                           target="_blank">Form Elements</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#form_layouts"
-                                                           target="_blank">Form Layouts</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/1.0/doc/#form_validation"
-                                                           target="_blank">Form Validation</a>
-                                                    </li>
-                                                </ul>
-                                                <h6 class="sub-menu-heading">Other products</h6>
-                                                <ul class="sub-menu">
-                                                    <li>
-                                                        <a href="http://www.revox.io/webarch/"
-                                                           target="_blank">Webarch</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <h6 class="sub-menu-heading">Made with pages</h6>
-                                                <ul class="sub-menu">
-                                                    <li>
-                                                        <a href="http://pages.revox.io/dashboard/latest/html"
-                                                           target="_blank">Pages Admin</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/dashboard/latest/html/email.html"
-                                                           target="_blank">Email</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/frontend/latest" target="_blank">Pages
-                                                            Frontend</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/dashboard/latest/html/calendar.html"
-                                                           target="_blank">Calendar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/dashboard/latest/html/social.html"
-                                                           target="_blank">Social</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="http://pages.revox.io/dashboard/latest/html/builder.html"
-                                                           target="_blank">Builder</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
+                    <li>
+                        <a href="#/about" data-text="About">About </a>
                     </li>
                     <li>
-                        <a href="pricing.html" data-text="Pricing">Pricing </a>
+                        <a href="#/devics" data-text="Devices">Devices</a>
                     </li>
                     <li>
-                        <a href="portfolio.html" data-text="Portfolio">Portfolio </a>
-                    </li>
-                    <li>
-                        <a href="contact.html" data-text="Contact">Contact </a>
+                        <a href="#/support" data-text="Support">Support</a>
                     </li>
                     <li>
                         <a class="btn btn-sm btn-bordered fs-12 btn-white hidden-sm hidden-xs "
-                           href="http://themeforest.net/item/pages-responsive-admin-dashboard-template/9694847"
-                           data-text="Buy now">Buy now</a>
-                        <a class="btn btn-bordered fs-12 btn-black  font-montserrat fs-12 all-caps pull-bottom visible-sm visible-xs buy-now sm-static sm-m-l-20 sm-m-r-20 sm-m-t-20"
-                           href="http://themeforest.net/item/pages-responsive-admin-dashboard-template/9694847">Buy
-                            now</a>
+                           data-text="Get now">Get now</a>
+                        <a class="btn btn-bordered fs-12 btn-black  font-montserrat fs-12 all-caps pull-bottom visible-sm visible-xs buy-now sm-static sm-m-l-20 sm-m-r-20 sm-m-t-20">Get now</a>
                     </li>
                 </ul>
             </div>
@@ -213,7 +101,7 @@
                     <!-- BEGIN IMAGE PARRALAX -->
                     <div class="slider-wrapper">
                         <div class="bg-image full-width full-height" data-swiper-parallax="30%"
-                             data-pages-bg-image="assets/images/bg_pattern_1.jpg">
+                             data-pages-bg-image="public/images/bg_pattern_1.jpg">
                         </div>
                     </div>
                     <!-- END IMAGE PARRALAX -->
@@ -237,9 +125,9 @@
                         </div>
                     </div>
                     <!-- END CONTENT -->
-                    <img class="ipad lazy" draggable="false" src="public/layout/images/ipad_1.png" alt="" title=""
+                    <img class="ipad lazy" draggable="false" src="public/images/ipad_1.png" alt="" title=""
                          data-swiper-parallax="80%">
-                    <img class="bg-elements hidden-xs lazy" src="public/layout/images/bg_elements_1.png"
+                    <img class="bg-elements hidden-xs lazy" src="public/images/bg_elements_1.png"
                          data-swiper-parallax="-20%" alt="">
                 </div>
                 <!-- END SLIDE -->
@@ -248,7 +136,7 @@
                     <!-- BEGIN IMAGE PARRALAX -->
                     <div class="slider-wrapper">
                         <div class="bg-image full-width full-height" data-swiper-parallax="30%"
-                             data-pages-bg-image="assets/images/bg_pattern_3.jpg">
+                             data-pages-bg-image="public/images/bg_pattern_3.jpg">
                         </div>
                     </div>
                     <!-- END IMAGE PARRALAX -->
@@ -272,9 +160,9 @@
                         </div>
                     </div>
                     <!-- END CONTENT -->
-                    <img class="ipad lazy" draggable="false" src="public/layout/images/ipad_4.png" alt="" title=""
+                    <img class="ipad lazy" draggable="false" src="public/images/ipad_4.png" alt="" title=""
                          data-swiper-parallax="80%">
-                    <img class="bg-elements hidden-xs lazy" src="public/layout/images/bg_elements_3.png"
+                    <img class="bg-elements hidden-xs lazy" src="public/images/bg_elements_3.png"
                          data-swiper-parallax="-20%" alt="">
                 </div>
                 <!-- END SLIDE -->
@@ -283,7 +171,7 @@
                     <!-- BEGIN IMAGE PARRALAX -->
                     <div class="slider-wrapper">
                         <div class="bg-image full-width full-height" data-swiper-parallax="30%"
-                             data-pages-bg-image="assets/images/bg_pattern_2.jpg">
+                             data-pages-bg-image="public/images/bg_pattern_2.jpg">
                         </div>
                     </div>
                     <!-- END IMAGE PARRALAX -->
@@ -307,9 +195,9 @@
                         </div>
                     </div>
                     <!-- END CONTENT -->
-                    <img class="ipad lazy" draggable="false" src="public/layout/images/ipad_3.png" alt="" title=""
+                    <img class="ipad lazy" draggable="false" src="public/images/ipad_3.png" alt="" title=""
                          data-swiper-parallax="80%">
-                    <img class="bg-elements hidden-xs lazy" src="public/layout/images/bg_elements_2.png"
+                    <img class="bg-elements hidden-xs lazy" src="public/images/bg_elements_2.png"
                          data-swiper-parallax="-20%" alt="">
                 </div>
                 <!-- END SLIDE -->
@@ -335,7 +223,7 @@
                     move forward with a more sophisticated yet simple framework that would create a credible impact on
                     the many conventional dashboard users.
                 </p>
-                <img src="public/layout/images/arrow_down.png" class="m-t-30" alt="">
+                <img src="public/images/arrow_down.png" class="m-t-30" alt="">
             </div>
         </div>
     </div>
@@ -347,7 +235,7 @@
         <div class="row row-sm-height sm-m-l-15 sm-m-r-15">
             <div class="col-lg-2 col-md-1 hidden-sm"></div>
             <div class="col-sm-6 col-lg-4 col-md-5 col-sm-height col-middle sm-text-center">
-                <img class="p-r-40 m-t-10 xs-image-responsive-height sm-no-padding lazy" src="public/layout/images/ipad_2.jpg"
+                <img class="p-r-40 m-t-10 xs-image-responsive-height sm-no-padding lazy" src="public/images/ipad_2.jpg"
                      alt="">
             </div>
             <div class="col-sm-6 col-sm-height col-middle col-lg-4 col-md-4 xs-text-center sm-p-l-30">
@@ -384,9 +272,9 @@
         </div>
     </div>
     <div class="top-left bottom-right no-overflow full-width full-height">
-        <img src="public/layout/images/elements_1.png" class="inner lazy" alt="">
+        <img src="public/images/elements_1.png" class="inner lazy" alt="">
     </div>
-    <img class="iphone lazy" src="public/layout/images/iphone.png" data-pages="float" data-max-top-translate="40"
+    <img class="iphone lazy" src="public/images/iphone.png" data-pages="float" data-max-top-translate="40"
          data-max-bottom-translate="40" data-speed="0.1" data-delay="1000" data-curve="ease" alt="">
 </section>
 <!-- END CONTENT SECTION -->
@@ -395,7 +283,7 @@
     <div class="container">
         <div class="col-md-8 col-md-offset-2 ">
             <div class="text-center">
-                <img src="public/layout/images/arrow_down.png" alt="">
+                <img src="public/images/arrow_down.png" alt="">
                 <h5 class="block-title m-t-40 hint-text m-b-0">Endless Possibilities </h5>
 
                 <h1 class="light m-t-5">Page state of the art UI bundle</h1>
@@ -461,7 +349,7 @@
                     <div class="text-center">
                         <h1 class="text-white col-sm-12 p-b-10">Crafted with detail for a great start!
                             front-end plus back-end.</h1>
-                        <img src="public/layout/images/themeforest_logo.png" class="m-t-5" alt="">
+                        <img src="public/images/themeforest_logo.png" class="m-t-5" alt="">
 
                         <p class="fs-12 text-white m-t-30 font-arial"><span class="hint-text">Exclusive only at
                         Envato Marketplace,<br></span> Themeforest See Standard licenses &amp; Extended licenses
@@ -478,7 +366,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <img src="public/layout/images/logo_black.png" class="logo inline m-r-50" alt="">
+                <img src="public/images/logo_black.png" class="logo inline m-r-50" alt="">
 
                 <div class="m-t-10 ">
                     <ul class="no-style fs-11 no-padding font-arial">
@@ -505,22 +393,5 @@
         </div>
     </div>
 </section>
-<!-- END FOOTER -->
-<!-- BEGIN VENDOR JS -->
-<!--<script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>-->
-<script type="text/javascript" src="public/layout/js/pages.image.loader.js"></script>
-<!--<script type="text/javascript" src="assets/plugins/jquery/jquery-1.11.1.min.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/swiper/js/swiper.jquery.min.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/velocity/velocity.min.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/velocity/velocity.ui.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/jquery-appear/jquery.appear.js"></script>-->
-<!--<script type="text/javascript" src="assets/plugins/animateNumber/jquery.animateNumbers.js"></script>-->
-<!-- END VENDOR JS -->
-<!-- BEGIN PAGES FRONTEND LIB -->
-<script type="text/javascript" src="public/layout/js/pages.frontend.js"></script>
-<!-- END PAGES LIB -->
-<!-- BEGIN YOUR CUSTOM JS -->
-<script type="text/javascript" src="public/layout/js/custom.js"></script>
-<!-- END PAGES LIB -->
 </body>
 </html>

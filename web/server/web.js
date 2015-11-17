@@ -5,7 +5,7 @@ var app = express();
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-    res.sendfile(path.join(__dirname, '../client/app.html'));
+    res.sendFile(path.join(__dirname, '../client/public.html'));
 });
 
 app.use(express.static(path.join(__dirname, '../client')));
@@ -14,5 +14,5 @@ var server = app.listen(8080, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Retro is listening at http://%s:%s', host, port);
+    console.log('Retro web is listening at http://%s:%s', host, port);
 });

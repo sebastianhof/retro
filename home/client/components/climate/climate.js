@@ -87,12 +87,12 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
                     }
                 }
 
-            }
+            };
 
-            $http.get('api/items/climate').success(function(data) {
-                controller.items = data.items;
-                controller.filteredItems = controller.items;
-            })
+            //$http.get('api/items/climate').success(function(data) {
+            //    controller.items = data.items;
+            //    controller.filteredItems = controller.items;
+            //})
 
         }])
 
