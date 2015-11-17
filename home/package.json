@@ -2,7 +2,10 @@
   "name": "retro-home",
   "version": "0.0.1",
   "description": "Integrated smart home application",
-  "main": "index.js",
+  "main": "server/index.js",
+  "engines": {
+    "node": "4.1.1"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
@@ -19,9 +22,7 @@
     "philips-hue": "^0.1.2",
     "q": "^1.4.1",
     "wemo-client": "^0.4.0",
-    "withings-lib": "^0.2.2"
-  },
-  "devDependencies": {
+    "withings-lib": "^0.2.2",
     "bower": "^1.6.5",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
