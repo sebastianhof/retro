@@ -5,11 +5,15 @@ import * as _ from 'lodash';
 import * as q from 'q';
 
 import {IDevice} from './idevice';
-import {ItemDatastore, Item, ItemType} from "../datastores/itemDatastore";
-import {RetroHub} from "../hub";
-import {DeviceDatastore, DeviceType, DeviceModel} from "../datastores/deviceDatastore";
+import {ItemDatastore} from "../datastores/itemDatastore";
+import {RetroHub} from "../retro/hub";
+import {DeviceDatastore} from "../datastores/deviceDatastore";
+import {ItemType} from "../models/itemModel";
+import {ItemModel} from "../models/itemModel";
+import {DeviceModel} from "../models/deviceModel";
+import {DeviceType} from "../models/deviceModel";
 
-var MaxCube = require('../lib/maxcube');
+var MaxCube = require('./.././maxcube');
 
 export class Maxcube implements IDevice {
     id:string;
@@ -61,8 +65,8 @@ export class Maxcube implements IDevice {
                     type = ItemType.WINDOW_CONTACT;
                 }
 
-                ItemDatastore.getInstance().upsertItem(<Item> {
-                    itemId: <string> configuration.rf_address, type: type, deviceId: deviceId, values: values
+                ItemDatastore.getInstance().upsertItem(<ItemModel> {
+                    uuid: <string> configuration.rf_address, type: type, deviceId: deviceId, values: values
                 }).then(function () {
                     console.log(Maxcube.CONFIGURATION_UPDATE_EVENT);
                     RetroHub.getInstance().emit(Maxcube.CONFIGURATION_UPDATE_EVENT, id);
@@ -74,8 +78,8 @@ export class Maxcube implements IDevice {
                 var promises = Array();
 
                 _.forEach(devicesStatus, function (n:any, key:string) {
-                    promises.push(ItemDatastore.getInstance().upsertItem(<Item> {
-                        itemId: key, deviceId: deviceId, values: {'currentTemp': n.temp}
+                    promises.push(ItemDatastore.getInstance().upsertItem(<ItemModel> {
+                        uuid: key, deviceId: deviceId, values: {'currentTemp': n.temp}
                     }));
                 });
 
@@ -107,7 +111,8 @@ export class Maxcube implements IDevice {
             if (device == null) {
                 // no device available
 
-                DeviceDatastore.getInstance().addDevice(<DeviceModel> {
+                DeviceDatastore.getInstance().upsertDevice(<DeviceModel> {
+                    'uuid': 'TTTT',
                     'title': 'Max!Cube',
                     'type': DeviceType.MAXCUBE,
                 }).then(function (device:any) {

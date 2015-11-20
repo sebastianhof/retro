@@ -4,7 +4,15 @@ import * as express from 'express';
 import * as path from 'path';
 import * as passport from 'passport';
 import {UserDatastore} from "./datastores/userDatastore";
-
+import {DashboardApi} from "./api/dashboardApi";
+import {DevicesApi} from "./api/devicesApi";
+import {ItemsApi} from "./api/itemsApi";
+import {LocationsApi} from "./api/locationsApi";
+import {RulesApi} from "./api/rulesApi";
+import {UsersApi} from "./api/usersApi";
+import {RetroHub} from "./retro/hub";
+import {RetroDemo} from "./retro/demo";
+import {UserModel} from "./models/userModel";
 
 // Express
 var app:express.Express = express();
@@ -36,7 +44,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(function (username, password, done) {
 
-    UserDatastore.getInstance().getUser({username: username}).then(function (user) {
+    UserDatastore.getInstance().getUser({username: username}).then(function (user: UserModel) {
 
         var bcrypt = require('bcrypt-nodejs');
         if (bcrypt.compareSync(password, user.password)) {
@@ -72,24 +80,19 @@ app.get('/', function (req, res) {
 app.use(express.static(path.join(__dirname, '../client')));
 
 // Setup modules
-import dashboard = require('./dashboard');
-import devices = require('./devices');
-import items = require('./items');
-import locations = require('./locations');
-import rules = require('./rules');
-import users = require('./users');
-import hub = require('./hub');
 
 // Init hub
-hub.RetroHub.init();
+RetroHub.init();
 
 // Init modules
-new dashboard.Dashboard(app);
-new devices.Devices(app);
-new items.Items(app);
-new locations.Locations(app);
-new rules.Rules(app);
-new users.Users(app);
+new DashboardApi(app);
+new DevicesApi(app);
+new ItemsApi(app);
+new LocationsApi(app);
+new RulesApi(app);
+new UsersApi(app);
+
+RetroDemo.initDemo();
 
 // Start server
 var server = app.listen(process.env.PORT || 8080, function () {

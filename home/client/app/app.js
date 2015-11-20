@@ -36,14 +36,18 @@ define([
         //    });
         //}])
 
-        .controller('AppController', ['$scope', function ($scope) {
-
+        .controller('AppController', ['$scope', '$http', function ($scope, $http) {
+            var controller = this;
             // Broadcasts a message to pgSearch directive to toggle search overlay
             this.showSearchOverlay = function () {
                 $scope.$broadcast('toggleSearchOverlay', {
                     show: true
                 })
             };
+
+            $http.get('/api/user').success(function (user) {
+                controller.user = user;
+            });
 
             this.data = {
                 currentUser: {

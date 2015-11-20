@@ -84,25 +84,28 @@
         <!-- START User Info-->
         <div class="visible-lg visible-md m-t-10">
             <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-                <span class="semi-bold">{{ app.data.currentUser.firstname }}</span> <span class="text-master">{{ app.data.currentUser.lastname }}</span>
+                <span class="semi-bold">{{ app.user.firstname }}</span> <span class="text-master">{{ app.user.lastname }}</span>
             </div>
             <div class="dropdown pull-right">
                 <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="app/img/profiles/avatar.jpg" alt="" data-src="app/img/profiles/avatar.jpg" ui-jq="unveil" data-src-retina="app/img/profiles/avatar_small2x.jpg" width="32" height="32">
-            </span>
+                        <i class="fa fa-caret-down"></i>
+                    </span>
                 </button>
                 <ul class="dropdown-menu profile-dropdown" role="menu">
-                    <li><a href=""><i class="fa fa-cogs"></i> Settings</a>
+                    <li><a href="#/settings"><i class="fa fa-cogs"></i> Settings</a>
                     </li>
-                    <li><a href=""><i class="fa fa-comment"></i> Feedback</a>
+                    <li><a href="#/feedback"><i class="fa fa-comment"></i> Feedback</a>
                     </li>
-                    <li><a href=""><i class="fa fa-question-circle"></i> Help</a>
+                    <li><a href="#/help"><i class="fa fa-question-circle"></i> Help</a>
                     </li>
                     <li class="bg-master-lighter">
                         <a href="" class="clearfix">
-                            <a href="/api/signout"><span class="pull-left">Logout</span></a>
-                            <span class="pull-right"><i class="fa fa-sign-out"></i></span>
+                            <a href="/api/signout">
+                                <span class="pull-left">Logout</span>
+                                <span class="pull-right"><i class="fa fa-sign-out"></i></span>
+                            </a>
+
                         </a>
                     </li>
                 </ul>

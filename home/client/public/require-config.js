@@ -11,5 +11,6 @@ require.config({
         'jquery.scrollbar': ['jquery'],
         'pages': ['jquery']
     },
-    deps: ['bootstrap', 'jquery.scrollbar', 'pages']
+    deps: ['bootstrap', 'jquery.scrollbar', 'pages'],
+    waitSeconds: 0
 });

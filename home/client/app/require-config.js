@@ -27,7 +27,8 @@ require.config({
         'nouislider': ['jquery'],
         'pages': ['jquery']
     },
-    deps: ['bootstrap', 'lodash', 'jquery.scrollbar', 'pages']
+    deps: ['bootstrap', 'lodash', 'jquery.scrollbar', 'pages'],
+    waitSeconds: 0
 });
 
 require(['app/app'], function(app) {
