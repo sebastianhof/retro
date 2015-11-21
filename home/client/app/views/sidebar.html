@@ -1,6 +1,15 @@
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar" data-pages="sidebar" pg-sidebar>
-    <div id="appMenu" class="sidebar-overlay-slide from-top">
+    <div id="appMenu" class="sidebar-overlay-slide from-top sidebar-menu">
+
+        <ul class="menu-items">
+            <li ng-repeat="location in app.locations">
+                <a href="#/rooms/{{location.id}}">
+                    <span class="title">{{location.title}}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
 
     </div>
     <!-- BEGIN SIDEBAR HEADER -->

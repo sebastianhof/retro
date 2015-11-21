@@ -13,7 +13,7 @@ import {ItemModel} from "../models/itemModel";
 import {DeviceModel} from "../models/deviceModel";
 import {DeviceType} from "../models/deviceModel";
 
-var MaxCube = require('./lib/maxcube');
+var MaxCube = require('././maxcube');
 
 export class Maxcube implements IDevice {
     id:string;

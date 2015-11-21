@@ -1,4 +1,5 @@
 /// <reference path="../typed/express/express.d.ts" />
+/// <reference path="../typed/passport/passport.d.ts" />
 import * as express from 'express';
 import * as passport from 'passport';
 import {UserDatastore} from "./../datastores/userDatastore";

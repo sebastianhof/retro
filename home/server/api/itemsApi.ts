@@ -73,6 +73,16 @@ export class ItemsApi {
 
         });
 
+        app.get('/api/items/rooms/:roomId', function (req, res) {
+
+            ItemDatastore.getInstance().getItems({locationId: req.params.roomId}).then(function (items) {
+                res.send({items: items});
+            }, function (status:RetroError) {
+                res.sendStatus(status);
+            })
+
+        });
+
         /**
          * Get items by deviceId
          *

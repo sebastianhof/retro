@@ -1,20 +1,28 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        typescript: {
-            base: {
-                src: ['server/**/*.ts']
-            },
-            options: {
-                module: 'commonjs',
-                sourceMap: false,
-                declaration: false
+        ts: {
+            default: {
+                src: [
+                    'server/index.ts',
+                    'server/api/*.ts',
+                    'server/datastores/*.ts',
+                    'server/devices/*.ts',
+                    'server/lib/*.ts',
+                    'server/models/*.ts',
+                    'server/retro/*.ts'
+                ],
+                options: {
+                    module: 'commonjs',
+                    sourceMap: false,
+                    declaration: false
+                }
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-ts');
 
-    grunt.registerTask('buildserver', ['typescript']);
+    grunt.registerTask('buildserver', ['ts']);
 
-}
+};

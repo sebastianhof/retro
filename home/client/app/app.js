@@ -11,6 +11,7 @@ define([
     'components/lighting/lighting',
     'components/appliances/appliances',
     'components/security/security',
+    'components/rooms/rooms',
     'components/settings/settings'
 ], function () {
 
@@ -22,6 +23,7 @@ define([
             'retro.climate',
             'retro.lighting',
             'retro.appliances',
+            'retro.rooms',
             'retro.security',
             'retro.settings'
         ])
@@ -36,7 +38,7 @@ define([
         //    });
         //}])
 
-        .controller('AppController', ['$scope', '$http', function ($scope, $http) {
+        .controller('AppController', ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
             var controller = this;
             // Broadcasts a message to pgSearch directive to toggle search overlay
             this.showSearchOverlay = function () {
@@ -45,18 +47,20 @@ define([
                 })
             };
 
+            /*
+             * User
+             */
             $http.get('/api/user').success(function (user) {
                 controller.user = user;
             });
 
-            this.data = {
-                currentUser: {
-                    id: '1',
-                    firstname: 'Sebastian',
-                    lastname: 'Hof',
-                    email: 'mail@sebastianhof.com'
-                }
-            }
+            /*
+             * Locations
+             */
+            $http.get('api/locations').success(function (data) {
+                controller.locations = data.locations;
+            });
+
         }]);
 
     app.bootstrap = function () {
@@ -64,7 +68,6 @@ define([
             angular.resumeBootstrap(['retro']);
         });
     };
-
 
     return app;
 

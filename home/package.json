@@ -2,16 +2,20 @@
   "name": "retro-home",
   "version": "0.0.1",
   "description": "Integrated smart home application",
-  "main": "server/index.js",
+  "main": "server.js",
   "engines": {
-    "node": "4.1.1"
+    "node": "5.0.0"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-ts": "^5.1.1",
     "lifx-api": "^1.0.1",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
@@ -22,11 +26,7 @@
     "philips-hue": "^0.1.2",
     "q": "^1.4.1",
     "wemo-client": "^0.4.0",
-    "withings-lib": "^0.2.2",
-    "bower": "^1.6.5",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-typescript": "^0.8.0"
+    "withings-lib": "^0.2.2"
   },
   "scripts": {
     "postinstall": "grunt buildserver && bower install",
