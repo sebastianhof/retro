@@ -33,6 +33,7 @@ define(['angular'], function (angular) {
                     value: '=',
                     max: '=',
                     min: '=',
+                    current: '=',
                     onSet: '='
                 },
                 link: function (scope, elem) {
@@ -45,6 +46,11 @@ define(['angular'], function (angular) {
                                 min: 0,
                                 '1%': scope.min,
                                 max: scope.max
+                            },
+                            pips: {
+                                mode: 'values',
+                                values: [scope.current],
+                                density: 4
                             },
                             step: 1
                         });
@@ -116,6 +122,29 @@ define(['angular'], function (angular) {
 
 
                 }
+            }
+        })
+
+        .filter('retrocommand', function() {
+            return function(command) {
+
+                var action = '';
+                if(command.action == 'turnoff') action = 'Turn off';
+                if(command.action == 'turnon') action = 'Turn on';
+                if(command.action == 'settemp') action = 'Set temperature of';
+
+                var type = '';
+                if (command.itemType == 'thermostat') type = 'Thermostat';
+                if (command.itemType == 'light') type = 'Light';
+                if (command.itemType == 'dimmer') type = 'Dimmer';
+                if (command.itemType == 'colorlight') type = 'Color light';
+                if (command.itemType == 'colordimmer') type = 'Color dimmer';
+                if (command.itemType == 'switch') type = 'Switch';
+
+                var value = '';
+                if (command.value) value = 'to ' + command.value;
+
+                return action + ' ' + command.itemTitle + ' ' + type + ' ' + value
             }
         })
 

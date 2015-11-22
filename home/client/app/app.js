@@ -11,6 +11,7 @@ define([
     'components/lighting/lighting',
     'components/appliances/appliances',
     'components/security/security',
+    'components/outdoor/outdoor',
     'components/rooms/rooms',
     'components/settings/settings'
 ], function () {
@@ -23,8 +24,9 @@ define([
             'retro.climate',
             'retro.lighting',
             'retro.appliances',
-            'retro.rooms',
             'retro.security',
+            'retro.outdoor',
+            'retro.rooms',
             'retro.settings'
         ])
 
@@ -45,6 +47,44 @@ define([
                 $scope.$broadcast('toggleSearchOverlay', {
                     show: true
                 })
+            };
+
+            this.sidebar = 'categories';
+
+            this.toggleSidebar = function() {
+                if (this.sidebar == 'categories') this.sidebar = 'rooms';
+                else if (this.sidebar == 'rooms') this.sidebar = 'categories';
+             };
+
+            this.getItemTemplate = function (itemType) {
+
+                switch (itemType) {
+                    case 'thermostat':
+                        return 'components/items/thermostat.html';
+                    case 'weatherstation':
+                        return 'components/items/weatherstation.html';
+                    case 'light':
+                        return 'components/items/light.html';
+                    case 'dimmer':
+                        return 'components/items/dimmer.html';
+                    case 'colorlight':
+                        return 'components/items/colorlight.html';
+                    case 'switch':
+                        return 'components/items/switch.html';
+                    case 'bodyweight':
+                        return 'components/items/bodyweight.html';
+                    case 'doorlock':
+                        return 'components/items/doorlock.html';
+                    case 'windowcontact':
+                        return 'components/items/windowcontact.html';
+                    case 'cctv':
+                        return 'components/items/cctv.html';
+                    case 'smokedetector':
+                        return 'components/items/smokedetector.html';
+                    case 'shortcut':
+                        return 'components/items/shortcut.html';
+                }
+
             };
 
             /*

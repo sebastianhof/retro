@@ -20,10 +20,7 @@
 
                         <div class="col-md-4 m-b-20">
 
-                            <ng-include src="'components/items/thermostat.html'"
-                                        ng-if="item.type == 'thermostat'"></ng-include>
-                            <ng-include src="'components/items/weatherstation.html'"
-                                        ng-if="item.type == 'weatherstation'"></ng-include>
+                            <ng-include src="app.getItemTemplate(item.type)"></ng-include>
 
                         </div>
 

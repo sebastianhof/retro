@@ -20,12 +20,7 @@
 
                         <div class="col-md-4 m-b-20">
 
-                            <ng-include src="'components/items/doorlock.html'"
-                                        ng-if="item.type == 'doorlock'"></ng-include>
-                            <ng-include src="'components/items/windowcontact.html'" ng-if="item.type == 'windowcontact'"></ng-include>
-                            <ng-include src="'components/items/cctv.html'" ng-if="item.type == 'cctv'"></ng-include>
-                            <ng-include src="'components/items/smokedetector.html'"
-                                        ng-if="item.type == 'smokedetector'"></ng-include>
+                            <ng-include src="app.getItemTemplate(item.type)"></ng-include>
 
                         </div>
 

@@ -1,6 +1,6 @@
-<div class="panel no-border bg-master widget widget-6">
+<div class="panel no-border" ng-class="{ 'bg-open': !item.values.closed, 'bg-closed': item.values.closed }">
     <div class="panel-heading">
-        <div class="panel-title">{{::item.title}} {{::item.type}}</div>
+        <div class="panel-title">{{::item.title}} Window contact</div>
     </div>
     <div class="panel-body">
         <div class="padding-25">

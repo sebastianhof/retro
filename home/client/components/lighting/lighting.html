@@ -20,10 +20,7 @@
 
                         <div class="col-md-4 m-b-20">
 
-                            <ng-include src="'components/items/light.html'" ng-if="item.type == 'light'"></ng-include>
-                            <ng-include src="'components/items/dimmer.html'" ng-if="item.type == 'dimmer'"></ng-include>
-                            <ng-include src="'components/items/colorlight.html'"
-                                        ng-if="item.type == 'colorlight'"></ng-include>
+                            <ng-include src="app.getItemTemplate(item.type)"></ng-include>
 
                         </div>
 

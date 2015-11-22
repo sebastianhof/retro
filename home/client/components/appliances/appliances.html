@@ -20,10 +20,7 @@
 
                         <div class="col-md-4 m-b-20">
 
-                            <ng-include src="'components/items/switch.html'" ng-if="item.type == 'switch'"></ng-include>
-                            <ng-include src="'components/items/bodyweight.html'"
-                                        ng-if="item.type == 'bodyweight'"></ng-include>
-
+                            <ng-include src="app.getItemTemplate(item.type)"></ng-include>
 
                         </div>
 

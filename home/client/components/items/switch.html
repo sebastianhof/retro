@@ -1,6 +1,6 @@
-<div class="panel no-border bg-master widget widget-6">
+<div class="panel no-border" ng-class="{ 'bg-on': item.values.on, 'bg-off': !item.values.on }">
     <div class="panel-heading">
-        <div class="panel-title">{{::item.title}} {{::item.type}}</div>
+        <div class="panel-title">{{::item.title}} Switch</div>
     </div>
     <div class="panel-body">
         <div class="padding-25">

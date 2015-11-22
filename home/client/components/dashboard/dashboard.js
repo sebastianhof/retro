@@ -14,10 +14,70 @@ define(['angular'], function(angular) {
             });
         }])
 
-        .controller('DashboardController', [DashboardController]);
+        .controller('DashboardController', [function() {
 
-    function DashboardController () {
+            this.items = [
+                {
+                    title: 'Leaving Home',
+                    type: 'shortcut',
+                    commands: [
+                        {
+                            action: 'turnoff',
+                            itemId: 'XXXX',
+                            itemTitle: 'Kitchen',
+                            itemType: 'light',
+                            locationId: 'xxxx'
+                        },
+                        {
+                            action: 'turnoff',
+                            itemId: 'XXXX',
+                            itemTitle: 'Living room',
+                            itemType: 'light',
+                            locationId: 'xxxx'
+                        },
+                        {
+                            action: 'settemp',
+                            itemId: 'XXXX',
+                            itemTitle: 'Living room',
+                            itemType: 'thermostat',
+                            locationId: 'xxxx',
+                            value: 17
+                        }
+                    ]
+                },
+                {
+                    title: 'Coming Home',
+                    type: 'shortcut',
+                    commands: [
+                        {
+                            action: 'turnon',
+                            itemId: 'XXXX',
+                            itemTitle: 'Kitchen',
+                            itemType: 'light',
+                            locationId: 'xxxx'
+                        },
+                        {
+                            action: 'turnon',
+                            itemId: 'XXXX',
+                            itemTitle: 'Living room',
+                            itemType: 'light',
+                            locationId: 'xxxx'
+                        },
+                        {
+                            action: 'settemp',
+                            itemId: 'XXXX',
+                            itemTitle: 'Living room',
+                            itemType: 'thermostat',
+                            locationId: 'xxxx',
+                            value: 21
+                        }
+                    ]
+                }
 
-    }
+
+            ]
+
+
+        }]);
 
 });

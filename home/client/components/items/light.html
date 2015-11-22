@@ -1,6 +1,6 @@
-<div class="panel no-border bg-master widget widget-6">
+<div class="panel no-border" ng-class="{ 'bg-light-100': item.values.on, 'bg-off': !item.values.on }">
     <div class="panel-heading">
-        <div class="panel-title">{{::item.type}}</div>
+        <div class="panel-title">{{::item.title}} Light</div>
     </div>
     <div class="panel-body">
         <div class="padding-25">

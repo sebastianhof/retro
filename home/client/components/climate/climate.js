@@ -33,7 +33,7 @@ define(['angular', 'lodash', 'components/settings/locations/locations'], functio
                     var item = _.find(controller.items, {id: itemId});
                     if (item != null) {
                         $timeout(function () {
-                            item.values.currentTemp = value
+                            item.values.temp = value
                         });
 
                     }

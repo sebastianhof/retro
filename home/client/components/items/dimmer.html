@@ -1,6 +1,14 @@
-<div class="panel no-border bg-master widget widget-6">
+<div class="panel no-border"
+     ng-class="{
+     'bg-light-100': item.values.current > 80,
+     'bg-light-80':  item.values.current <= 80 && item.values.current > 60,
+     'bg-light-60': item.values.current <= 60 && item.values.current > 40,
+     'bg-light-40': item.values.current <= 40 && item.values.current > 20,
+     'bg-light-20': item.values.current <= 20 && item.values.current > 0,
+     'bg-off': item.values.current == 0
+     }">
     <div class="panel-heading">
-        <div class="panel-title">{{::item.type}}</div>
+        <div class="panel-title">{{::item.title}} Dimmer</div>
     </div>
     <div class="panel-body">
         <div class="padding-25">

@@ -79,6 +79,7 @@ export class RetroDemo {
                 title: 'Living room',
                 values: <ThermostatValues> {
                     currentTemp: 20,
+                    temp: 20,
                     maxTemp: 30,
                     minTemp: 15
                 }
@@ -130,6 +131,7 @@ export class RetroDemo {
                 title: 'Kitchen',
                 values: <ThermostatValues> {
                     currentTemp: 15,
+                    temp: 18,
                     maxTemp: 30,
                     minTemp: 15
                 }
@@ -196,7 +198,8 @@ export class RetroDemo {
                 type: ItemType.THERMOSTAT,
                 title: 'Bathroom',
                 values: <ThermostatValues> {
-                    currentTemp: 0,
+                    currentTemp: 20,
+                    temp: 0,
                     maxTemp: 30,
                     minTemp: 15
                 }
@@ -228,6 +231,7 @@ export class RetroDemo {
                 title: 'Bedroom',
                 values: <ThermostatValues> {
                     currentTemp: 20,
+                    temp: 22,
                     maxTemp: 30,
                     minTemp: 15
                 }

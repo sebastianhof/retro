@@ -1,36 +1,25 @@
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar" data-pages="sidebar" pg-sidebar>
-    <div id="appMenu" class="sidebar-overlay-slide from-top sidebar-menu">
-
-        <ul class="menu-items">
-            <li ng-repeat="location in app.locations">
-                <a href="#/rooms/{{location.id}}">
-                    <span class="title">{{location.title}}</span>
-                </a>
-            </li>
-        </ul>
-        <div class="clearfix"></div>
-
-    </div>
     <!-- BEGIN SIDEBAR HEADER -->
     <div class="sidebar-header">
         <img src="app/img/logo_white.png" alt="logo" class="brand" data-src="app/img/logo_white.png"
              data-src-retina="app/img/logo_white_2x.png" width="78" height="22">
 
         <div class="sidebar-header-controls">
-            <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button">
-                <i class="fa fa-angle-down fs-16"></i>
+            <button ng-click="app.toggleSidebar()" class="btn btn-xs btn-link m-l-20" type="button">
+                <i class="fa fa-list fs-16" ng-if="app.sidebar == 'categories'"></i>
+                <i class="fa fa-list-ul fs-16" ng-if="app.sidebar == 'rooms'"></i>
             </button>
-            <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button"><i
-                    class="fa fs-12"></i>
+            <button data-toggle-pin="sidebar" class="btn btn-link visible-lg-inline" type="button">
+                <i class="fa fs-12"></i>
             </button>
         </div>
     </div>
     <!-- END SIDEBAR HEADER -->
     <!-- BEGIN SIDEBAR MENU -->
-    <div class="sidebar-menu">
+    <div class="sidebar-menu  m-t-30" ng-if="app.sidebar == 'categories'">
         <ul class="menu-items">
-            <li class="m-t-30">
+            <li>
                 <a href="#/dashboard">
                     <span class="title">Dashboard</span>
                 </a>
@@ -61,6 +50,12 @@
                 <span class="icon-thumbnail"><i class="fa fa-lock"></i></span>
             </li>
             <li class="">
+                <a href="#/outdoor">
+                    <span class="title">Outdoor</span>
+                </a>
+                <span class="icon-thumbnail"><i class="fa fa-tree"></i></span>
+            </li>
+            <li class="">
                 <a href="#/settings">
                     <span class="title">Settings</span>
                 </a>
@@ -69,6 +64,19 @@
         </ul>
         <div class="clearfix"></div>
     </div>
+
+    <div class="sidebar-menu  m-t-30" ng-if="app.sidebar == 'rooms'">
+        <ul class="menu-items">
+            <li ng-repeat="location in app.locations">
+                <a href="#/rooms/{{location.id}}">
+                    <span class="title">{{location.title}}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+
+    </div>
+
     <!-- END SIDEBAR MENU -->
 </div>
 <!-- END SIDEBAR -->

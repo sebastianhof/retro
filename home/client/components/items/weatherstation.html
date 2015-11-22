@@ -1,7 +1,7 @@
-<div class="panel no-border bg-complete widget">
+<div class="panel no-border bg-primary">
 
     <div class="panel-heading">
-        <div class="panel-title">{{::item.type}}</div>
+        <div class="panel-title">{{::item.title}} Weather station</div>
     </div>
 
     <div class="panel-body">
@@ -9,20 +9,20 @@
             <h1 class="text-white semi-bold">{{item.values.temperature}}°</h1>
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <p class="pull-left">Humidity</p>
 
                     <p class="pull-right bold">{{::item.values.humidity}}&nbsp;%</p>
                 </div>
 
 
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <p class="pull-left">Pressure</p>
 
                     <p class="pull-right bold">{{::item.values.airpressure}}&nbsp;mbar</p>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <p class="pull-left">CO<sub>2</sub></p>
 
                     <p class="pull-right bold">{{::item.values.co2}}&nbsp;ppm</p>
