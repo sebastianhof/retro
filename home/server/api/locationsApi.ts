@@ -1,4 +1,6 @@
 /// <reference path="../typed/express/express.d.ts" />
+/// <reference path="../typed/lodash/lodash.d.ts" />
+/// <reference path="../typed/q/Q.d.ts" />
 import * as express from 'express';
 import * as _ from 'lodash';
 import * as q from 'q';
@@ -20,8 +22,8 @@ export class LocationsApi {
          */
         app.get('/api/locations', function (req, res) {
 
-            LocationDatastore.getInstance().getLocations().then(function (locations) {
-                res.send({locations: _.map(locations, LocationsApi.toJson)});
+            LocationDatastore.getInstance().getLocations().then(function (locations: Array<LocationModel>) {
+                res.send({locations: _.map(_.sortBy(locations, 'title'), LocationsApi.toJson)});
             }, function (status:RetroError) {
                 res.sendStatus(status);
             });
@@ -83,7 +85,7 @@ export class LocationsApi {
 
     }
 
-    private static toJson(location:any) {
+    private static toJson(location:LocationModel) {
         return {
             id: location._id,
             title: location.title,

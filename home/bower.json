@@ -27,9 +27,9 @@
     "oclazyload": "~1.0.8",
     "nouislider": "~8.1.0",
     "switchery": "~0.8.1",
-    "jquery-minicolors": "~2.2.1",
     "angular-bootstrap": "~0.14.3",
     "PACE": "pace#~1.0.2",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "colorwheel": "~1.0.0"
   }
 }

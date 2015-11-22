@@ -20,8 +20,10 @@ export class ItemsApi {
          */
         app.get('/api/items/climate', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.THERMOSTAT, ItemType.WEATHERSTATION]}}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.THERMOSTAT, ItemType.WEATHERSTATION]}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             })
@@ -35,8 +37,10 @@ export class ItemsApi {
          */
         app.get('/api/items/lighting', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.LIGHT, ItemType.COLORLIGHT, ItemType.DIMMER, ItemType.COLORDIMMER]}}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.LIGHT, ItemType.COLORLIGHT, ItemType.DIMMER, ItemType.COLORDIMMER]}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             })
@@ -50,8 +54,10 @@ export class ItemsApi {
          */
         app.get('/api/items/appliances', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.SWITCH, ItemType.BODYWEIGHT, ItemType.HEART_RATE_MONITOR]}}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.SWITCH, ItemType.BODYWEIGHT, ItemType.HEART_RATE_MONITOR]}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             })
@@ -65,8 +71,10 @@ export class ItemsApi {
          */
         app.get('/api/items/security', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.CCTV, ItemType.DOORLOCK, ItemType.WINDOW_CONTACT, ItemType.SMOKE_DETECTOR]}}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.CCTV, ItemType.DOORLOCK, ItemType.WINDOW_CONTACT, ItemType.SMOKE_DETECTOR]}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             })
@@ -75,8 +83,10 @@ export class ItemsApi {
 
         app.get('/api/items/rooms/:roomId', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({locationId: req.params.roomId}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({locationId: req.params.roomId}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             })
@@ -90,8 +100,10 @@ export class ItemsApi {
          */
         app.get('/api/items/device/:deviceId', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({deviceId: req.params.deviceId}).then(function (items) {
-                res.send({items: items});
+            ItemDatastore.getInstance().getItems({deviceId: req.params.deviceId}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
             }, function (status:RetroError) {
                 res.sendStatus(status);
             });
@@ -112,8 +124,8 @@ export class ItemsApi {
                 title: req.body.title
             };
 
-            ItemDatastore.getInstance().upsertItem(item).then(function (item) {
-                res.send(item);
+            ItemDatastore.getInstance().upsertItem(item).then(function (item: ItemModel) {
+                res.send(ItemsApi.toJson(item));
             }, function (status:RetroError) {
                 res.sendStatus(status);
             });
@@ -131,6 +143,18 @@ export class ItemsApi {
 
         });
 
+    }
+
+    private static toJson(item:ItemModel) {
+        return {
+            id: item._id,
+            uuid: item.uuid,
+            deviceId: item.deviceId,
+            locationId: item.locationId,
+            type: item.type,
+            title: item.title,
+            values: item.values
+        }
     }
 
 }

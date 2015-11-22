@@ -1,4 +1,4 @@
-<div class="panel no-border bg-master widget widget-6">
+<div class="panel no-border bg-master widget widget-6" ng-style="{ 'background-color': item.values.on ? item.values.color : '' }">
     <div class="panel-heading">
         <div class="panel-title">{{::item.type}}</div>
     </div>
@@ -12,12 +12,12 @@
                    on-set="lighting.setValue"/>
 
         </div>
-        <div>
-            <input type="hidden" retro-color-picker class="minicolors-input"
+        <div class="text-center">
+            <div retro-color-picker stlye="width: auto;"
                    item-id="item.id"
-                   value="{{item.values.color}}"
+                   value="item.values.color"
                    on-set="lighting.setValue">
-            </input>
+            </div>
         </div>
     </div>
 </div>

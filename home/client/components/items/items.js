@@ -65,22 +65,22 @@ define(['angular'], function (angular) {
             return {
                 scope: {
                     itemId: '=',
-
+                    value: '=',
                     onSet: '='
                 },
                 link: function (scope, elem) {
 
-                    require(['jquery-minicolors'], function () {
+                    require(['raphael', 'colorwheel'], function (Raphael) {
 
-                        $.minicolors.defaults = $.extend($.minicolors.defaults, {
-                            theme: 'bootstrap'
-                        });
-
-                        $(elem).minicolors({
-                            change: function (value, opacity) {
-                                if (scope.onSet) scope.onSet(scope.itemId, 'color', value);
-                            }
-                        });
+                        var cw = Raphael.colorwheel($(elem)[0], 300, 180).color(scope.value);
+                        $(elem).width('auto');
+                        $(elem).find('rect').remove();
+                        var circles = $(elem).find('circle');
+                        circles[circles.length - 1].remove();
+                        circles[circles.length - 2].remove();
+                        cw.onchange(function (value) {
+                            if (scope.onSet) scope.onSet(scope.itemId, 'color', value);
+                        })
 
                     })
 
