@@ -1,5 +1,5 @@
-/// <reference path="../typed/node/node.d.ts" />
-/// <reference path="../typed/lodash/lodash.d.ts" />
+/// <reference path="../../typings/node/node.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
 import * as _ from 'lodash';
 import {IDevice} from "./../devices/idevice";
 import {EventEmitter} from "events";

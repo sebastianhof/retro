@@ -4,7 +4,7 @@ export enum DeviceType {
 
 export interface DeviceModel {
     _id?: string,
-    uuid: string,
+    uuid: string, // unique
     type?: DeviceType,
     title?: string,
     values?: DeviceValues

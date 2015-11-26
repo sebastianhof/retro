@@ -1,6 +1,6 @@
-/// <reference path="../typed/nedb/nedb.d.ts" />
-/// <reference path="../typed/q/Q.d.ts" />
-/// <reference path="../typed/lodash/lodash.d.ts" />
+/// <reference path="../../typings/nedb/nedb.d.ts" />
+/// <reference path="../../typings/q/Q.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
 import * as _ from 'lodash';
 import * as q from 'q';
 import {RetroLogger} from "../retro/utils";

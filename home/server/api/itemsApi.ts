@@ -1,6 +1,6 @@
-/// <reference path="../typed/express/express.d.ts" />
-/// <reference path="../typed/lodash/lodash.d.ts" />
-/// <reference path="../typed/q/Q.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
+/// <reference path="../../typings/q/Q.d.ts" />
 import * as express from 'express';
 import * as _ from 'lodash';
 import * as q from 'q';
@@ -72,6 +72,40 @@ export class ItemsApi {
         app.get('/api/items/security', function (req, res) {
 
             ItemDatastore.getInstance().getItems({type: {$in: [ItemType.CCTV, ItemType.DOORLOCK, ItemType.WINDOW_CONTACT, ItemType.SMOKE_DETECTOR]}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
+            }, function (status:RetroError) {
+                res.sendStatus(status);
+            })
+
+        });
+
+        /**
+         * Get outdoor items
+         *
+         * GET /api/items/outdoor
+         */
+        app.get('/api/items/outdoor', function (req, res) {
+
+            ItemDatastore.getInstance().getItems({type: {$in: []}}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
+            }, function (status:RetroError) {
+                res.sendStatus(status);
+            })
+
+        });
+
+        /**
+         * Get car items
+         *
+         * GET /api/items/car
+         */
+        app.get('/api/items/car', function (req, res) {
+
+            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.GARAGE_DOOR]}}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });

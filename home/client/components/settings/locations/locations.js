@@ -9,29 +9,10 @@ define(['angular'], function (angular) {
         }])
         .run(['$http', '$rootScope', function ($http, $rootScope) {
 
-            $http.get('api/locations').success(function (data) {
+            $http.get().success(function (data) {
                 $rootScope.locations = data.locations;
             });
 
         }])
-        .service('LocationService', ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
-
-            return {
-                getLocation: function (locationId) {
-                    var deferred = $q.defer();
-
-                    var location = _.find($rootScope.locations, { id: locationId});
-                    if (location != null) {
-                        deferred.resolve(location);
-                    } else {
-                        deferred.reject();
-                    }
-
-                    return deferred.promise;
-                }
-            }
-
-        }]);
-
 
 });

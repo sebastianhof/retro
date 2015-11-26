@@ -29,7 +29,7 @@
     "withings-lib": "^0.2.2"
   },
   "scripts": {
-    "postinstall": "grunt buildserver && bower install",
+    "postinstall": "grunt buildserver && bower install && grunt buildclient",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Hof <mail@sebastianhof.com>",

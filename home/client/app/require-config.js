@@ -12,7 +12,7 @@ require.config({
         'lodash': 'bower_components/lodash/lodash.min',
         'nouislider': 'bower_components/nouislider/distribute/nouislider.min',
         'pages': 'app/js/pages',
-        'raphael': 'bower_components/raphael/raphael-min'
+        'raphael': 'bower_components/raphael/raphael-min',
     },
     shim: {
         'angular': {

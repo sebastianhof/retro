@@ -1,23 +1,24 @@
-export class ItemType {
-    static THERMOSTAT = 'thermostat';
-    static WEATHERSTATION = 'weatherstation';
-    static LIGHT = 'light';
-    static COLORLIGHT = 'colorlight';
-    static DIMMER = 'dimmer';
-    static COLORDIMMER = 'colordimmer';
-    static SWITCH = 'switch';
-    static BODYWEIGHT = 'bodyweight';
-    static HEART_RATE_MONITOR = 'heartrate';
-    static DOORLOCK = 'doorlock';
-    static WINDOW_CONTACT = 'windowcontact';
-    static CCTV = 'cctv';
-    static SMOKE_DETECTOR = 'smokedetector';
-    static UNDEFINED = 'undefined';
+export enum ItemType {
+    THERMOSTAT = 0,
+    WEATHERSTATION = 1,
+    LIGHT = 2,
+    COLORLIGHT = 3,
+    DIMMER = 4,
+    COLORDIMMER = 5,
+    SWITCH = 6,
+    BODYWEIGHT = 7,
+    HEART_RATE_MONITOR = 8,
+    DOORLOCK = 9,
+    WINDOW_CONTACT = 10,
+    CCTV = 11,
+    SMOKE_DETECTOR = 12,
+    GARAGE_DOOR = 13,
+    UNDEFINED = 14
 }
 
 export interface ItemModel {
     _id?: string,
-    uuid: string,
+    uuid: string, // unique
     deviceId?: string,
     locationId?: string,
     type?: ItemType,
@@ -30,6 +31,7 @@ export interface ItemValues {
 }
 
 export interface ThermostatValues extends ItemValues {
+    temp?: number,
     currentTemp?: number,
     minTemp?: number,
     maxTemp?: number
@@ -93,3 +95,8 @@ export interface SmokeDetectorValues extends ItemValues {
     smoke?: boolean,
     co2?: number
 }
+
+export interface GarageDoorValues extends ItemValues {
+    closed: boolean
+}
+

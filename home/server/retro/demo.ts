@@ -12,6 +12,7 @@ import {WeatherstationValues} from "../models/itemModel";
 import {SmokeDetectorValues} from "../models/itemModel";
 import {DoorLockValues} from "../models/itemModel";
 import {BodyWeightValues} from "../models/itemModel";
+import {GarageDoorValues} from "../models/itemModel";
 export class RetroDemo {
 
     static initDemo() {
@@ -49,7 +50,12 @@ export class RetroDemo {
             title: 'Garden'
         };
 
-        LocationDatastore.getInstance().addLocation(livingRoom).then(function(location: LocationModel) {
+        var garage = <LocationModel> {
+            type: LocationType.OUTSIDE,
+            title: 'Garage'
+        };
+
+        LocationDatastore.getInstance().addLocation(livingRoom).then(function (location:LocationModel) {
 
             var televisionSwitch = <ItemModel> {
                 uuid: 'AAAA0',
@@ -102,7 +108,7 @@ export class RetroDemo {
 
         });
 
-        LocationDatastore.getInstance().addLocation(kitchen).then(function(location: LocationModel) {
+        LocationDatastore.getInstance().addLocation(kitchen).then(function (location:LocationModel) {
 
             var radioSwitch = <ItemModel> {
                 uuid: 'BBBB0',
@@ -166,7 +172,7 @@ export class RetroDemo {
 
         });
 
-        LocationDatastore.getInstance().addLocation(bathroom).then(function(location: LocationModel) {
+        LocationDatastore.getInstance().addLocation(bathroom).then(function (location:LocationModel) {
 
             var bodyWeight = <ItemModel> {
                 uuid: 'CCCC0',
@@ -211,7 +217,7 @@ export class RetroDemo {
 
         });
 
-        LocationDatastore.getInstance().addLocation(bedroom).then(function(location: LocationModel) {
+        LocationDatastore.getInstance().addLocation(bedroom).then(function (location:LocationModel) {
 
             var colorLight = <ItemModel> {
                 uuid: 'DDDD0',
@@ -253,7 +259,7 @@ export class RetroDemo {
 
         });
 
-        LocationDatastore.getInstance().addLocation(hall).then(function(location: LocationModel) {
+        LocationDatastore.getInstance().addLocation(hall).then(function (location:LocationModel) {
 
             var doorLockValues = <ItemModel> {
                 uuid: 'EEEE0',
@@ -277,7 +283,7 @@ export class RetroDemo {
 
         });
 
-        LocationDatastore.getInstance().addLocation(garden).then(function(location: LocationModel) {
+        LocationDatastore.getInstance().addLocation(garden).then(function (location:LocationModel) {
 
             var weatherstation = <ItemModel> {
                 uuid: 'FFFF0',
@@ -301,6 +307,21 @@ export class RetroDemo {
 
             ItemDatastore.getInstance().upsertItem(weatherstation);
             ItemDatastore.getInstance().upsertItem(cctv);
+
+        });
+
+        LocationDatastore.getInstance().addLocation(garage).then(function (location:LocationModel) {
+
+            var garagedoor = <ItemModel> {
+                uuid: 'GGGG0',
+                locationId: location._id,
+                type: ItemType.GARAGE_DOOR,
+                title: '',
+                values: <GarageDoorValues> {
+                    closed: false
+                }
+            }
+            ItemDatastore.getInstance().upsertItem(garagedoor);
 
         });
 

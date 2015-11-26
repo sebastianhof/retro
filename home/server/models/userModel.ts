@@ -4,7 +4,8 @@ export enum UserRole {
 }
 
 export interface UserModel {
-    username: string,
+    _id?: string,
+    username: string, // unique
     password?: string,
     role?: UserRole
     firstname?: string,

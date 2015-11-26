@@ -1,6 +1,6 @@
-/// <reference path="../typed/express/express.d.ts" />
-/// <reference path="../typed/lodash/lodash.d.ts" />
-/// <reference path="../typed/q/Q.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
+/// <reference path="../../typings/q/Q.d.ts" />
 import * as express from 'express';
 import * as _ from 'lodash';
 import * as q from 'q';
