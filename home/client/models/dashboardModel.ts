@@ -20,3 +20,7 @@ export interface DashboardShortcutModel extends DashboardModel {
 export interface DashboardItemModel extends DashboardModel {
     item: ItemModel
 }
+
+export interface DashboardGraphModel extends DashboardModel {
+
+}

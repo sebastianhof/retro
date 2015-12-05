@@ -20,17 +20,10 @@ module.exports = function (grunt) {
             },
             client: {
                 src: [
-                    'client/components/appliances/*.ts',
-                    'client/components/car/*.ts',
-                    'client/components/climate/*.ts',
                     'client/components/dashboard/*.ts',
                     'client/components/help/*.ts',
                     'client/components/items/*.ts',
                     'client/components/layout/*.ts',
-                    'client/components/lighting/*.ts',
-                    'client/components/outdoor/*.ts',
-                    'client/components/rooms/*.ts',
-                    'client/components/security/*.ts',
                     'client/components/settings/*.ts',
                     'client/components/settings/account/*.ts',
                     'client/components/settings/devices/*.ts',

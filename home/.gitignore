@@ -40,3 +40,4 @@ server/*.js
 server/**/*.js
 
 .tscache
+dist

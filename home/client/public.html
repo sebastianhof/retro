@@ -15,23 +15,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta content="Retro: Home control" name="description"/>
     <meta content="Sebastian Hof" name="author"/>
-    <!-- stylesheets -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="bower_components/jquery.scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css"/>
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"
-          media="screen"/>
-    <link href="app/css/pages-icons.css" rel="stylesheet" type="text/css">
-    <link class="main-stylesheet" href="app/css/pages.css" rel="stylesheet" type="text/css"/>
-
-    <script data-main="public/require-config" src="bower_components/requirejs/require.js"></script>
+    <link rel="stylesheet" href="public.css"/>
 </head>
-<body class="fixed-header   ">
+<body class="fixed-header">
+<script type="text/javascript" src="public.bundle.js" charset="utf-8"></script>
+
 <!-- START PAGE-CONTAINER -->
 <div class="login-wrapper ">
     <!-- START Login Background Pic Wrapper-->
     <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="public/retro-bg.jpg" data-src="public/retro-bg.jpg" data-src-retina="public/retro-bg.jpg" alt=""
+        <img src="images/retro-bg.jpg" alt=""
              class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
@@ -55,7 +49,8 @@
     <!-- START Login Right Container-->
     <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-            <!--<img src="app/img/logo.png" alt="logo" data-src="app/img/logo.png" data-src-retina="app/img/logo_2x.png" width="78" height="22">-->
+            <img src="images/retro-logo.png" alt="logo" height="22">
+
             <p class="p-t-35">Sign into retro smart control</p>
             <!-- START Login Form -->
             <form id="form-login" class="p-t-15" role="form" action="/api/signin" method="post">
@@ -81,11 +76,5 @@
     <!-- END Login Right Container-->
 </div>
 <!-- END PAGE CONTAINER -->
-
-<script>
-    $(function () {
-        $('#form-login').validate()
-    })
-</script>
 </body>
 </html>

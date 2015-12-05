@@ -1,14 +1,14 @@
 import {LocationDatastore} from "../datastores/locationDatastore";
 import {LocationModel, LocationType} from "../models/locationModel";
 import {ItemDatastore} from "../datastores/itemDatastore";
-import {ItemModel, ItemType} from "../models/itemModel";
+import {ItemModel, ItemType, ItemCategory} from "../models/itemModel";
 import {SwitchValues} from "../models/itemModel";
 import {ColorLightValues} from "../models/itemModel";
 import {ThermostatValues} from "../models/itemModel";
 import {WindowContactValues} from "../models/itemModel";
 import {LightValues} from "../models/itemModel";
 import {DimmerValues} from "../models/itemModel";
-import {WeatherstationValues} from "../models/itemModel";
+import {WeatherStationValues} from "../models/itemModel";
 import {SmokeDetectorValues} from "../models/itemModel";
 import {DoorLockValues} from "../models/itemModel";
 import {BodyWeightValues} from "../models/itemModel";
@@ -61,6 +61,7 @@ export class RetroDemo {
                 uuid: 'AAAA0',
                 locationId: location._id,
                 type: ItemType.SWITCH,
+                category: ItemCategory.APPLIANCES,
                 title: 'TV',
                 values: <SwitchValues> {
                     on: false
@@ -70,7 +71,8 @@ export class RetroDemo {
             var colorLight = <ItemModel> {
                 uuid: 'AAAA1',
                 locationId: location._id,
-                type: ItemType.COLORLIGHT,
+                type: ItemType.COLOR_LIGHT,
+                category: ItemCategory.LIGHTING,
                 title: 'Living room',
                 values: <ColorLightValues> {
                     on: false,
@@ -82,6 +84,7 @@ export class RetroDemo {
                 uuid: 'AAAA2',
                 locationId: location._id,
                 type: ItemType.THERMOSTAT,
+                category: ItemCategory.CLIMATE,
                 title: 'Living room',
                 values: <ThermostatValues> {
                     currentTemp: 20,
@@ -95,6 +98,7 @@ export class RetroDemo {
                 uuid: 'AAAA3',
                 locationId: location._id,
                 type: ItemType.WINDOW_CONTACT,
+                category: ItemCategory.SECURITY,
                 title: 'Living room',
                 values: <WindowContactValues> {
                     closed: true
@@ -114,6 +118,7 @@ export class RetroDemo {
                 uuid: 'BBBB0',
                 locationId: location._id,
                 type: ItemType.SWITCH,
+                category: ItemCategory.APPLIANCES,
                 title: 'Radio',
                 values: <SwitchValues> {
                     on: false
@@ -124,6 +129,7 @@ export class RetroDemo {
                 uuid: 'BBBB1',
                 locationId: location._id,
                 type: ItemType.LIGHT,
+                category: ItemCategory.LIGHTING,
                 title: 'Kitchen',
                 values: <LightValues> {
                     on: false,
@@ -134,6 +140,7 @@ export class RetroDemo {
                 uuid: 'BBBB2',
                 locationId: location._id,
                 type: ItemType.THERMOSTAT,
+                category: ItemCategory.CLIMATE,
                 title: 'Kitchen',
                 values: <ThermostatValues> {
                     currentTemp: 15,
@@ -147,6 +154,7 @@ export class RetroDemo {
                 uuid: 'BBBB3',
                 locationId: location._id,
                 type: ItemType.WINDOW_CONTACT,
+                category: ItemCategory.SECURITY,
                 title: 'Kitchen',
                 values: <WindowContactValues> {
                     closed: false
@@ -157,6 +165,7 @@ export class RetroDemo {
                 uuid: 'BBBB4',
                 locationId: location._id,
                 type: ItemType.SMOKE_DETECTOR,
+                category: ItemCategory.SECURITY,
                 title: 'Kitchen',
                 values: <SmokeDetectorValues> {
                     smoke: false,
@@ -177,7 +186,8 @@ export class RetroDemo {
             var bodyWeight = <ItemModel> {
                 uuid: 'CCCC0',
                 locationId: location._id,
-                type: ItemType.BODYWEIGHT,
+                type: ItemType.BODY_WEIGHT,
+                category: ItemCategory.APPLIANCES,
                 title: 'Withings',
                 values: <BodyWeightValues> {
                     weight: 73,
@@ -189,6 +199,7 @@ export class RetroDemo {
                 uuid: 'CCCC1',
                 locationId: location._id,
                 type: ItemType.DIMMER,
+                category: ItemCategory.LIGHTING,
                 title: 'Bathroom',
                 values: <DimmerValues> {
                     on: false,
@@ -202,6 +213,7 @@ export class RetroDemo {
                 uuid: 'CCCC2',
                 locationId: location._id,
                 type: ItemType.THERMOSTAT,
+                category: ItemCategory.CLIMATE,
                 title: 'Bathroom',
                 values: <ThermostatValues> {
                     currentTemp: 20,
@@ -222,7 +234,8 @@ export class RetroDemo {
             var colorLight = <ItemModel> {
                 uuid: 'DDDD0',
                 locationId: location._id,
-                type: ItemType.COLORLIGHT,
+                type: ItemType.COLOR_LIGHT,
+                category: ItemCategory.LIGHTING,
                 title: 'Bedroom',
                 values: <ColorLightValues> {
                     on: false,
@@ -234,6 +247,7 @@ export class RetroDemo {
                 uuid: 'DDDD1',
                 locationId: location._id,
                 type: ItemType.THERMOSTAT,
+                category: ItemCategory.CLIMATE,
                 title: 'Bedroom',
                 values: <ThermostatValues> {
                     currentTemp: 20,
@@ -247,6 +261,7 @@ export class RetroDemo {
                 uuid: 'DDDD2',
                 locationId: location._id,
                 type: ItemType.WINDOW_CONTACT,
+                category: ItemCategory.SECURITY,
                 title: 'Bedroom',
                 values: <WindowContactValues> {
                     closed: true
@@ -264,7 +279,8 @@ export class RetroDemo {
             var doorLockValues = <ItemModel> {
                 uuid: 'EEEE0',
                 locationId: location._id,
-                type: ItemType.DOORLOCK,
+                type: ItemType.DOOR_LOCK,
+                category: ItemCategory.SECURITY,
                 title: 'Frontdoor',
                 values: <DoorLockValues> {
                     closed: false
@@ -275,6 +291,7 @@ export class RetroDemo {
                 uuid: 'EEEE1',
                 locationId: location._id,
                 type: ItemType.CCTV,
+                category: ItemCategory.SECURITY,
                 title: 'Hall',
             };
 
@@ -288,9 +305,10 @@ export class RetroDemo {
             var weatherstation = <ItemModel> {
                 uuid: 'FFFF0',
                 locationId: location._id,
-                type: ItemType.WEATHERSTATION,
+                type: ItemType.WEATHER_STATION,
+                category: ItemCategory.CLIMATE,
                 title: 'Garden',
-                values: <WeatherstationValues> {
+                values: <WeatherStationValues> {
                     temperature: 23,
                     humidity: 59,
                     airpressure: 1020,
@@ -302,6 +320,7 @@ export class RetroDemo {
                 uuid: 'FFFF1',
                 locationId: location._id,
                 type: ItemType.CCTV,
+                category: ItemCategory.SECURITY,
                 title: 'Garden',
             };
 
@@ -316,11 +335,12 @@ export class RetroDemo {
                 uuid: 'GGGG0',
                 locationId: location._id,
                 type: ItemType.GARAGE_DOOR,
+                category: ItemCategory.CAR,
                 title: '',
                 values: <GarageDoorValues> {
                     closed: false
                 }
-            }
+            };
             ItemDatastore.getInstance().upsertItem(garagedoor);
 
         });

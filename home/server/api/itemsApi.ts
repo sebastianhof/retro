@@ -6,12 +6,23 @@ import * as _ from 'lodash';
 import * as q from 'q';
 import {ItemDatastore} from "./../datastores/itemDatastore";
 import {RetroError} from "../retro/utils";
-import {ItemType} from "../models/itemModel";
-import {ItemModel} from "../models/itemModel";
+import {ItemType, ItemModel, ItemCategory} from "../models/itemModel";
 
 export class ItemsApi {
 
     constructor(app:express.Express) {
+
+        app.get('/api/items', function (req, res) {
+
+            ItemDatastore.getInstance().getItems({}).then(function (items:Array<ItemModel>) {
+                res.send({
+                    items: _.map(items, ItemsApi.toJson)
+                });
+            }, function (status:RetroError) {
+                res.sendStatus(status);
+            })
+
+        });
 
         /**
          * Get climate items
@@ -20,7 +31,7 @@ export class ItemsApi {
          */
         app.get('/api/items/climate', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.THERMOSTAT, ItemType.WEATHERSTATION]}}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.CLIMATE}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -37,7 +48,7 @@ export class ItemsApi {
          */
         app.get('/api/items/lighting', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.LIGHT, ItemType.COLORLIGHT, ItemType.DIMMER, ItemType.COLORDIMMER]}}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.LIGHTING}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -54,7 +65,7 @@ export class ItemsApi {
          */
         app.get('/api/items/appliances', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.SWITCH, ItemType.BODYWEIGHT, ItemType.HEART_RATE_MONITOR]}}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.APPLIANCES}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -71,7 +82,7 @@ export class ItemsApi {
          */
         app.get('/api/items/security', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.CCTV, ItemType.DOORLOCK, ItemType.WINDOW_CONTACT, ItemType.SMOKE_DETECTOR]}}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.SECURITY}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -88,7 +99,7 @@ export class ItemsApi {
          */
         app.get('/api/items/outdoor', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: []}}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.OUTDOOR}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -105,19 +116,7 @@ export class ItemsApi {
          */
         app.get('/api/items/car', function (req, res) {
 
-            ItemDatastore.getInstance().getItems({type: {$in: [ItemType.GARAGE_DOOR]}}).then(function (items:Array<ItemModel>) {
-                res.send({
-                    items: _.map(items, ItemsApi.toJson)
-                });
-            }, function (status:RetroError) {
-                res.sendStatus(status);
-            })
-
-        });
-
-        app.get('/api/items/rooms/:roomId', function (req, res) {
-
-            ItemDatastore.getInstance().getItems({locationId: req.params.roomId}).then(function (items:Array<ItemModel>) {
+            ItemDatastore.getInstance().getItems({category: ItemCategory.CAR}).then(function (items:Array<ItemModel>) {
                 res.send({
                     items: _.map(items, ItemsApi.toJson)
                 });
@@ -158,22 +157,11 @@ export class ItemsApi {
                 title: req.body.title
             };
 
-            ItemDatastore.getInstance().upsertItem(item).then(function (item: ItemModel) {
+            ItemDatastore.getInstance().upsertItem(item).then(function (item:ItemModel) {
                 res.send(ItemsApi.toJson(item));
             }, function (status:RetroError) {
                 res.sendStatus(status);
             });
-
-        });
-
-        /**
-         * Command item
-         *
-         * POST /api/items/:itemId/command
-         */
-        app.post('/api/items/:uuid/command', function (req, res) {
-
-            // TODO
 
         });
 
@@ -186,6 +174,7 @@ export class ItemsApi {
             deviceId: item.deviceId,
             locationId: item.locationId,
             type: item.type,
+            category: item.category,
             title: item.title,
             values: item.values
         }

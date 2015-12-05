@@ -61,6 +61,7 @@ export class ItemDatastore {
         if (item.deviceId != null) $set['deviceId'] = item.deviceId;
         if (item.locationId != null) $set['locationId'] = item.locationId;
         if (item.type != null) $set['type'] = item.type;
+        if (item.category != null) $set['category'] = item.category;
         if (item.title != null) $set['title'] = item.title;
 
         _.forEach(<any> item.values, function (n, key) {

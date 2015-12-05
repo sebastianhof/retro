@@ -70,14 +70,14 @@ passport.deserializeUser(function (user, done) {
 // Main view
 app.get('/', function (req, res) {
     if (req.isAuthenticated()) {
-        res.sendFile(path.join(__dirname, '../client/app.html'));
+        res.sendFile(path.join(__dirname, '../dist/app.html'));
     } else {
-        res.sendFile(path.join(__dirname, '../client/public.html'));
+        res.sendFile(path.join(__dirname, '../dist/public.html'));
     }
 });
 
 // Static routes
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Setup modules
 
