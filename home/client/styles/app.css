@@ -1,0 +1,115 @@
+.page-sidebar .sidebar-overlay-slide {
+    padding: 150px 0 20px 0;
+}
+
+.bg-off {
+    background: #939393;
+}
+
+.bg-on {
+    background-color: #48B0F7;
+}
+
+.bg-open {
+    background-color: #F55753;
+}
+
+.bg-closed {
+    background-color: #10CFBD;
+}
+
+.bg-light-100 {
+    background-color: #F8D053;
+}
+
+.bg-light-80 {
+    background-color: #F9D975;
+}
+
+.bg-light-60 {
+    background-color: #F7E2A1;
+}
+
+.bg-light-40 {
+    background-color: #FCEDBD;
+}
+
+.bg-light-20 {
+    background-color: #FEF6DD;
+}
+
+.bg-temp-10 {
+    background-color: #3C93CE;
+}
+
+.bg-temp-15 {
+    background-color: #48B0F7
+}
+
+.bg-temp-20 {
+    background-color: #F8D053;
+}
+
+.bg-temp-25 {
+    background-color: #F55753;
+}
+
+.bg-temp-30 {
+    background-color: #CD4945;
+}
+
+.thermostat .noUi-marker {
+    background: #FFFFFF;
+}
+
+.thermostat .noUi-pips {
+    color: #FFFFFF;
+}
+
+.animate-15s {
+    animation-duration: 15s;
+    -webkit-animation-duration: 15s;
+    -moz-animation-duration: 15s;
+    -o-animation-duration: 15s;
+}
+
+.bg-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.3;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.bg-wrapper {
+    background: #6d5cae !important;
+}
+
+.bg-appliances {
+    background-image: url(../images/retro-bg-appliances.jpg) !important;
+}
+
+.bg-car {
+    background-image: url(../images/retro-bg-garage.jpg) !important;
+}
+
+.bg-climate {
+    background-image: url(../images/retro-bg-climate.jpg) !important;
+}
+
+.bg-lighting {
+    background-image: url(../images/retro-bg-lighting.jpg) !important;
+}
+
+.bg-outdoor {
+    background-image: url(../images/retro-bg-garden.jpg) !important;
+}
+
+.bg-security {
+    background-image: url(../images/retro-bg-security.jpg) !important;
+}
