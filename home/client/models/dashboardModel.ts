@@ -5,7 +5,7 @@ export enum DashboardType {
     ITEM = 0,
     SHORTCUT = 1,
     GRAPH = 2
-}
+};
 
 export interface DashboardModel {
     id: string,

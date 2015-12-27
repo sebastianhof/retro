@@ -2,32 +2,19 @@ import {CommandType} from "../models/commandModel";
 import {ItemModel} from "../models/itemModel";
 import {Store} from '../stores/store';
 
-
 export const SEND_COMMAND = 'SEND_COMMAND';
 export const CONFIRM_COMMAND = 'CONFIRM_COMMAND';
-
-export function sendCommand(itemId:string, commandType:CommandType, value:any) {
-    return {
-        type: SEND_COMMAND,
-        itemId: itemId,
-        commandType: commandType,
-        value: value
-    }
-}
-
-export function confirmCommand(item:ItemModel) {
-    return {
-        type: CONFIRM_COMMAND,
-        item: item
-    }
-}
-
 
 export class CommandActions {
 
     static command(item:ItemModel, commandType:CommandType, value:any) {
 
-        Store.dispatch(sendCommand(item.id, commandType, value));
+        Store.dispatch({
+            type: SEND_COMMAND,
+            itemId: item.id,
+            commandType: commandType,
+            value: value
+        });
 
         // TODO send
 
@@ -49,7 +36,10 @@ export class CommandActions {
                 break;
         }
 
-        Store.dispatch(confirmCommand(item));
+        Store.dispatch({
+            type: CONFIRM_COMMAND,
+            item: item
+        });
 
     }
 

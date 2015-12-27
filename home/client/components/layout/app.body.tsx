@@ -11,6 +11,7 @@ import { Router, Route, Link } from 'react-router'
 import {DashboardComponent} from "../dashboard/dashboard";
 import {AppliancesItems, ClimateItems, CarItems, LightingItems, OutdoorItems, SecurityItems, LocationItemComponent} from "../items/items";
 import {ItemCategory} from "../../models/itemModel";
+import {SettingsComponent} from "../settings/settings";
 
 export class AppBodyComponent extends React.Component<any, any> {
 
@@ -36,6 +37,7 @@ export class AppBodyComponent extends React.Component<any, any> {
                                     <Route path="/outdoor" component={OutdoorItems}/>
                                     <Route path="/car" component={CarItems}/>
                                     <Route path="/rooms/:locationId" component={LocationItemComponent}/>
+                                    <Route path="/settings" component={SettingsComponent}/>
                                     {/*<Route path="/" component={App}>
                                      <Route path="about" component={About}/>
                                      <Route path="users" component={Users}>

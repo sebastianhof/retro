@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Integrated smart home application",
   "main": "server.js",
+  "licenses": "SEE LICENSE",
   "engines": {
     "node": "5.0.0"
   },
@@ -26,6 +27,7 @@
     "grunt-ts": "^5.1.1",
     "history": "^1.13.1",
     "html-loader": "^0.4.0",
+    "html-webpack-plugin": "^1.7.0",
     "imports-loader": "^0.6.5",
     "install": "^0.4.0",
     "jquery": "^2.1.4",
@@ -60,7 +62,9 @@
     "withings-lib": "^0.2.2"
   },
   "scripts": {
-    "postinstall": "grunt buildserver && webpack",
+    "buildserver": "grunt buildserver",
+    "buildclient": "webpack --config webpack.public.config && webpack --config webpack.app.config",
+    "postinstall":  "npm run buildserver && npm run buildclient",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Hof <mail@sebastianhof.com>",

@@ -145,7 +145,7 @@ class AppSidebarComponent extends React.Component<AppSidebarComponentProperties,
 
             <div className="page-sidebar">
                 <div className="sidebar-header">
-                    <img src="images/retro-logo.png" alt="logo" className="brand" width="78" height="22"/>
+                    <img src={require('../../images/retro-logo.png')} alt="logo" className="brand" width="78" height="22"/>
 
                     <div className="sidebar-header-controls">
                         <button className="btn btn-xs btn-link m-l-20" type="button"

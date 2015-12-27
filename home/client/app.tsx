@@ -4,7 +4,6 @@
 import "jquery";
 import "bootstrap";
 import "lodash";
-import "scrollReveal";
 
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -31,4 +30,9 @@ ReactDOM.render(
 
 LocationActions.fetchLocations();
 ItemActions.fetchItems();
+
+var scrollReveal = require("scrollreveal");
+window['sr'] = new scrollReveal({
+    reset: true
+});
 

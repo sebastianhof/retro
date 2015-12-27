@@ -4,7 +4,7 @@ import {Utils} from '../utils/utils'
 import {ItemModel} from "../models/itemModel";
 import {LocationModel} from "../models/locationModel";
 
-import {REQUEST_ITEMS, RECEIVE_ITEMS} from '../actions/itemActions'
+import {REQUEST_ITEMS, RECEIVE_ITEMS, UPDATE_ITEM} from '../actions/itemActions'
 import {REQUEST_LOCATIONS, RECEIVE_LOCATIONS} from "../actions/locationActions";
 import {SEND_COMMAND, CONFIRM_COMMAND} from "../actions/commandActions";
 
@@ -61,6 +61,18 @@ function items(state = [], action = null) {
                 return [...state, action.item];
             }
             break;
+        case UPDATE_ITEM:
+            var index = _.findIndex(state, {id: action.item.id});
+            if (index > -1) {
+                return [
+                    ...state.slice(0, index),
+                    _.assign({}, state[index], action.item),
+                    ...state.slice(index + 1)
+                ]
+            } else {
+                return [...state, action.item];
+            }
+            break;
         default:
             return state;
     }
@@ -84,7 +96,7 @@ let combinedReducers = combineReducers({
     events,
     items,
     locations
-})
+});
 
 export var Store = createStore(combinedReducers);
 

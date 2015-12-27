@@ -28,7 +28,7 @@ export class AppHeaderComponent extends React.Component<any, any> {
                 <div className="pull-left sm-table">
                     <div className="header-inner">
                         <div className="brand inline">
-                            <img src="images/retro-logo.png" alt="retro" height="22"/>
+                            <img src={require("../../images/retro-logo.png")} alt="retro" height="22"/>
                         </div>
 
                         <NotificationsHeaderComponent />
