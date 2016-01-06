@@ -130,8 +130,6 @@ export class NotificationViewComponent extends React.Component {
                     <View style={styles.container}>
                         <Text style={styles.notificationTitle}>Retro</Text>
                         <Text style={styles.notification}>Connecting to retro hub...</Text>
-                        <Text style={styles.notificationButton} onPress={this.setupConnection.bind(this)}>Setup
-                            connection</Text>
                     </View>
                 );
 

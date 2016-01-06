@@ -77,7 +77,7 @@ const SEARCH_TIMEOUT = 5000;
 export class SetupConnectionViewContainer extends React.Component {
 
     state = {
-        view: EMPTY_VIEW,
+        view: null,
         didFoundHub: false
     };
 
@@ -134,8 +134,6 @@ export class SetupConnectionViewContainer extends React.Component {
         // onStop event
         NativeAppEventEmitter.addListener('RetroDiscovery:DidStopSearchRetroHub', () => {
 
-            console.log('Setup connection: Stop searching hub');
-
             if (!this.state.didFoundHub) {
                 this.setState({
                     didFoundHub: false,
@@ -160,29 +158,36 @@ export class SetupConnectionViewContainer extends React.Component {
 
     }
 
-    searchHubManually() {
-
-    }
-
     confirmHubConfiguration() {
+
+        // TODO: go to hub configuration
+        SettingsActions.setHubHost(this.state.hubHost);
+        SettingsActions.connectToHub();
+        this.props.navigator.pop();
+        //this.setState({
+        //    view: CLOUD_CONFIGURATION_PANE
+        //});
 
     }
 
     confirmCloudConfiguration() {
-
-
+        // TODO: Cloud setup not available yet
         SettingsActions.setHubHost(this.state.hubHost);
-
+        SettingsActions.setUseCloud(true);
+        SettingsActions.setCloudAccessToken(null);
         SettingsActions.connectToHub();
+        this.props.navigator.pop();
+    }
 
-        this.setState({
-            view: CLOUD_CONFIGURATION_PANE
-        });
-
+    skipCloudConfiguration() {
+        SettingsActions.setHubHost(this.state.hubHost);
+        SettingsActions.connectToHub();
         this.props.navigator.pop();
     }
 
     render() {
+
+        //<Text style={styles.modalButton} onPress={this.searchHubManually.bind(this)}>Manual setup</Text>
 
         return (
             <View style={styles.container}>
@@ -198,7 +203,7 @@ export class SetupConnectionViewContainer extends React.Component {
                 <Modal animate={true} visible={this.state.view == CONNECT_TO_WIFI_PANE}>
                     <View style={styles.modalContainer}>
                         <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Please connect to wifi network.</Text>
+                        <Text style={styles.modalText}>Please connect to wifi network</Text>
                         <Text style={styles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
                     </View>
                 </Modal>
@@ -213,7 +218,6 @@ export class SetupConnectionViewContainer extends React.Component {
                         <Text style={styles.modalTitle}>Retro</Text>
                         <Text style={styles.modalText}>Could not find Retro Hub in your network.</Text>
                         <Text style={styles.modalButton} onPress={this.searchHub.bind(this)}>Retry</Text>
-                        <Text style={styles.modalButton} onPress={this.searchHubManually.bind(this)}>Manual setup</Text>
                         <Text style={styles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
                     </View>
                 </Modal>
@@ -231,7 +235,10 @@ export class SetupConnectionViewContainer extends React.Component {
                 </Modal>
                 <Modal animate={true} visible={this.state.view  == CLOUD_CONFIGURATION_PANE}>
                     <View style={styles.modalContainer}>
-                        <Text onPress={this.confirmCloudConfiguration.bind(this)}>Complete setup</Text>
+                        <Text style={styles.modalTitle}>Retro</Text>
+                        <Text style={styles.modalText}>Connect to cloud to access retro from anywhere.</Text>
+                        <Text style={styles.modalText}>(Retro cloud is currently not available)</Text>
+                        <Text style={styles.modalButton} onPress={this.skipCloudConfiguration.bind(this)}>Skip cloud setup</Text>
                     </View>
                 </Modal>
             </View>

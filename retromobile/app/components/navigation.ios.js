@@ -103,7 +103,7 @@ class InitialView extends React.Component {
 class SideMenuView extends React.Component {
 
     navigate(sideMenuItem) {
-        //UIActions.closeSideMenu();
+        UIActions.closeSideMenu();
 
         this.props.navigator.replace({
             key: sideMenuItem.key,

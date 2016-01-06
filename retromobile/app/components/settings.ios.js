@@ -12,6 +12,7 @@ import {SetupLocationsView} from './settings/setupLocations';
 import {SetupRulesView} from './settings/setupRules';
 import {AboutView, ContactView, FeedbackView} from './settings/about';
 import {SettingsActions} from '../actions/settingsActions';
+import settingsStyles from './settings/styles';
 
 var {
     StyleSheet,
@@ -26,31 +27,7 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F5FCFF'
-    },
-    settingsSectionHeader: {
-        alignSelf: 'flex-start',
-        fontFamily: 'Open Sans',
-        fontSize: 16,
-        fontWeight: '500',
-        paddingTop: 16,
-        paddingLeft: 16
-    },
-    settingsItemView: {
-        flexDirection: 'row',
-        paddingTop: 16,
-        paddingLeft: 16,
-        paddingRight: 16,
-        justifyContent: 'space-between'
-    },
-    settingsItemText: {
-        fontFamily: 'Open Sans',
-        fontSize: 16,
-        fontWeight: '300'
-    },
-    settingsItemSwitch: {
-        alignSelf: 'flex-end'
-    },
-    settingsButton: {}
+    }
 });
 
 const SETTINGS_HUB = 1;
@@ -110,7 +87,7 @@ class SettingsViewComponent extends React.Component {
                 SETTINGS_ABOUT_FEEDBACK,
                 SETTINGS_ABOUT_VERSION
             ]
-        }, [SETTINGS_HUB, SETTINGS_CLOUD, SETTINGS_SETUP, SETTINGS_ABOUT])
+        }, [SETTINGS_HUB, SETTINGS_SETUP, SETTINGS_ABOUT]) // Use cloud SETTINGS_CLOUD,
     };
 
     setupConnection() {
@@ -183,19 +160,19 @@ class SettingsViewComponent extends React.Component {
 
                         switch (sectionID) {
                             case SETTINGS_HUB:
-                                return (<Text style={styles.settingsSectionHeader}>Retro hub</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Retro hub</Text>);
                             case SETTINGS_CLOUD:
-                                return (<Text style={styles.settingsSectionHeader}>Retro cloud</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Retro cloud</Text>);
                             case SETTINGS_SETUP:
-                                return (<Text style={styles.settingsSectionHeader}>Setup</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Setup</Text>);
                             case SETTINGS_DEVICES:
-                                return (<Text style={styles.settingsSectionHeader}>Devices</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Devices</Text>);
                             case SETTINGS_LOCATIONS:
-                                return (<Text style={styles.settingsSectionHeader}>Locations</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Locations</Text>);
                             case SETTINGS_RULES:
-                                return (<Text style={styles.settingsSectionHeader}>Rules</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>Rules</Text>);
                             case SETTINGS_ABOUT:
-                                return (<Text style={styles.settingsSectionHeader}>About</Text>);
+                                return (<Text style={settingsStyles.settingsSectionHeader}>About</Text>);
                         }
 
                     }}
@@ -209,104 +186,104 @@ class SettingsViewComponent extends React.Component {
                                 switch (this.props.settings.hubConnectionStatus) {
 
                                     case HubConnectionStatus.NOT_CONNECTED:
-                                        status =  <Text style={[styles.settingsItemText, { fontWeight: '500' }]}>Not connected</Text>;
+                                        status =  <Text style={[settingsStyles.settingsItemText, { fontWeight: '500' }]}>Not connected</Text>;
                                         break;
                                     case HubConnectionStatus.CONNECTING:
-                                        status =  <Text style={[styles.settingsItemText, { fontWeight: '500' }]}>Connecting</Text>;
+                                        status =  <Text style={[settingsStyles.settingsItemText, { fontWeight: '500' }]}>Connecting</Text>;
                                         break;
                                     case HubConnectionStatus.CONNECTED:
-                                        status =  <Text style={[styles.settingsItemText, { fontWeight: '500' }]}>Connnected</Text>;
+                                        status =  <Text style={[settingsStyles.settingsItemText, { fontWeight: '500' }]}>Connnected</Text>;
                                         break;
                                     case HubConnectionStatus.CONNECTED_TO_CLOUD:
-                                        status =  <Text style={[styles.settingsItemText, { fontWeight: '500' }]}>Connnected via cloud</Text>;
+                                        status =  <Text style={[settingsStyles.settingsItemText, { fontWeight: '500' }]}>Connnected via cloud</Text>;
                                         break;
                                     case HubConnectionStatus.NOT_FOUND:
-                                        status =  <Text style={[styles.settingsItemText, { fontWeight: '500' }]}>Not found</Text>;
+                                        status =  <Text style={[settingsStyles.settingsItemText, { fontWeight: '500' }]}>Not found</Text>;
                                         break;
 
                                 }
 
-                                return (<View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Connection status</Text>
+                                return (<View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Connection status</Text>
                                     {status}
                                 </View>);
 
                             case SETTINGS_HUB_ADDRESS:
 
-                                return (<View style={styles.settingsItemView}>
-                                            <Text style={styles.settingsItemText}>Hub Address</Text>
-                                            <Text style={styles.settingsItemText}>{this.props.settings.hubHost}</Text>
+                                return (<View style={settingsStyles.settingsItemView}>
+                                            <Text style={settingsStyles.settingsItemText}>Hub Address</Text>
+                                            <Text style={settingsStyles.settingsItemText}>{this.props.settings.hubHost}</Text>
                                         </View>);
 
                             case SETTINGS_USE_CLOUD:
 
-                                return (<View style={styles.settingsItemView}>
-                                        <Text style={styles.settingsItemText}>Use Retro Cloud</Text>
-                                        <Switch tintColor="#6d5cae" onTintColor="#6d5cae" style={styles.settingsItemSwitch}
+                                return (<View style={settingsStyles.settingsItemView}>
+                                        <Text style={settingsStyles.settingsItemText}>Use Retro Cloud</Text>
+                                        <Switch tintColor="#6d5cae" onTintColor="#6d5cae" style={settingsStyles.settingsItemSwitch}
                                                 onValueChange={this.toggleUseCloud.bind(this)}
                                                 value={this.props.settings.useCloud}/>
                                     </View>);
 
                             case SETTINGS_RETRO_HUB_SETUP:
                                 return (<TouchableOpacity onPress={this.setupConnection.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Setup connection</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Setup connection</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_DEVICES_SETUP:
                                 return (<TouchableOpacity onPress={this.setupDevices.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Setup devices</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Setup devices</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_LOCATIONS_SETUP:
                                 return (<TouchableOpacity onPress={this.setupLocations.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Setup locations</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Setup locations</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_RULES_SETUP:
                                 return (<TouchableOpacity onPress={this.setupRules.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Setup rules</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Setup rules</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_ABOUT_RETRO:
                             return (<TouchableOpacity onPress={this.openAbout.bind(this)}>
-                            <View style={styles.settingsItemView}>
-                                        <Text style={styles.settingsItemText}>About retro</Text>
+                            <View style={settingsStyles.settingsItemView}>
+                                        <Text style={settingsStyles.settingsItemText}>About retro</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_ABOUT_CONTACT:
                                 return (<TouchableOpacity onPress={this.openContact.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Contact us</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Contact us</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_ABOUT_FEEDBACK:
                                 return (<TouchableOpacity onPress={this.openFeedback.bind(this)}>
-                                <View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Send us feedback</Text>
+                                <View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Send us feedback</Text>
                                      <Icon name="angle-right" size={24} color='#6d5cae'
-                                        style={styles.settingsButton}/>
+                                        style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
                             case SETTINGS_ABOUT_VERSION:
-                                return (<View style={styles.settingsItemView}>
-                                    <Text style={styles.settingsItemText}>Version</Text>
-                                     <Text style={styles.settingsItemText}>0.0.1</Text>
+                                return (<View style={settingsStyles.settingsItemView}>
+                                    <Text style={settingsStyles.settingsItemText}>Version</Text>
+                                     <Text style={settingsStyles.settingsItemText}>0.0.1</Text>
                                 </View>);
                         }
 

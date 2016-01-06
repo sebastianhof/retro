@@ -14,6 +14,7 @@ export const NOT_CONNECTED_TO_HUB = 'NOT_CONNECTED_TO_HUB';
 export const NOT_FOUND_HUB = 'NOT_FOUND_HUB';
 export const CONNECTED_TO_CLOUD = 'CONNECTED_TO_CLOUD';
 export const SET_USE_CLOUD = 'SET_USE_CLOUD';
+export const SET_CLOUD_ACCESS_TOKEN = 'SET_CLOUD_ACCESS_TOKEN';
 export const SET_HUB_HOST = 'SET_HUB_HOST';
 
 export class SettingsActions {
@@ -109,6 +110,15 @@ export class SettingsActions {
         Store.dispatch({
             type: SET_USE_CLOUD,
             value: value
+        })
+
+    }
+
+    static setCloudAccessToken(accessToken) {
+
+        Store.dispatch({
+            type: SET_CLOUD_ACCESS_TOKEN,
+            value: accessToken
         })
 
     }
