@@ -4,6 +4,7 @@ import NavigationBar from 'react-native-navbar';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {connect} from 'react-redux';
 import {SettingsActions} from '../../actions/settingsActions'
+import settingsStyles from './styles';
 
 var RetroDiscovery = require('react-native').NativeModules.RetroDiscovery;
 
@@ -19,49 +20,6 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F5FCFF'
-    },
-    modalContainer: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
-        justifyContent: 'center'
-    },
-    modalTitle: {
-        fontFamily: 'Open Sans',
-        fontSize: 20,
-        fontWeight: '500',
-        paddingBottom: 32,
-        alignSelf: 'center'
-    },
-    modalText: {
-        fontFamily: 'Open Sans',
-        fontSize: 16,
-        fontWeight: '300',
-        alignSelf: 'center'
-    },
-    modalButton: {
-        alignSelf: 'center',
-        fontFamily: 'Open Sans',
-        fontSize: 16,
-        fontWeight: '300',
-        marginTop: 32,
-        borderWidth: 1,
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 8,
-        paddingRight: 8
-    },
-    modalItemView: {
-        flexDirection: 'row',
-        paddingTop: 16,
-        paddingLeft: 16,
-        paddingRight: 16,
-        alignSelf: 'center',
-        justifyContent: 'space-between'
-    },
-    modalItemText: {
-        fontFamily: 'Open Sans',
-        fontSize: 16,
-        fontWeight: '300'
     }
 });
 
@@ -72,7 +30,6 @@ const HUB_NOT_FOUND_PANE = 3;
 const HUB_CONFIGURATION_PANE = 4;
 const CLOUD_CONFIGURATION_PANE = 5;
 const SEARCH_TIMEOUT = 5000;
-
 
 export class SetupConnectionViewContainer extends React.Component {
 
@@ -187,7 +144,7 @@ export class SetupConnectionViewContainer extends React.Component {
 
     render() {
 
-        //<Text style={styles.modalButton} onPress={this.searchHubManually.bind(this)}>Manual setup</Text>
+        //<Text style={settingsStyles.modalButton} onPress={this.searchHubManually.bind(this)}>Manual setup</Text>
 
         return (
             <View style={styles.container}>
@@ -201,44 +158,44 @@ export class SetupConnectionViewContainer extends React.Component {
                     }}
                 />
                 <Modal animate={true} visible={this.state.view == CONNECT_TO_WIFI_PANE}>
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Please connect to wifi network</Text>
-                        <Text style={styles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Please connect to wifi network</Text>
+                        <Text style={settingsStyles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
                     </View>
                 </Modal>
                 <Modal animate={true} visible={this.state.view == SEARCH_HUB_PANE}>
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Searching for Retro hub in your network...</Text>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Searching for Retro hub in your network...</Text>
                     </View>
                 </Modal>
                 <Modal animate={true} visible={this.state.view  == HUB_NOT_FOUND_PANE}>
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Could not find Retro Hub in your network.</Text>
-                        <Text style={styles.modalButton} onPress={this.searchHub.bind(this)}>Retry</Text>
-                        <Text style={styles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Could not find Retro Hub in your network.</Text>
+                        <Text style={settingsStyles.modalButton} onPress={this.searchHub.bind(this)}>Retry</Text>
+                        <Text style={settingsStyles.modalButton} onPress={this.cancel.bind(this)}>Cancel</Text>
                     </View>
                 </Modal>
                 <Modal animate={true} visible={this.state.view  == HUB_CONFIGURATION_PANE}>
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Retro Hub has been found in your network.</Text>
-                        <View style={styles.modalItemView}>
-                            <Text style={styles.modalItemText}>Domain: </Text>
-                            <Text style={[styles.modalItemText, {'fontWeight': '500'}]}>{this.state.hubHost}</Text>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Retro Hub has been found in your network.</Text>
+                        <View style={settingsStyles.modalItemView}>
+                            <Text style={settingsStyles.modalItemText}>Domain: </Text>
+                            <Text style={[settingsStyles.modalItemText, {'fontWeight': '500'}]}>{this.state.hubHost}</Text>
                         </View>
-                        <Text style={styles.modalButton}
+                        <Text style={settingsStyles.modalButton}
                               onPress={this.confirmHubConfiguration.bind(this)}>Next</Text>
                     </View>
                 </Modal>
                 <Modal animate={true} visible={this.state.view  == CLOUD_CONFIGURATION_PANE}>
-                    <View style={styles.modalContainer}>
-                        <Text style={styles.modalTitle}>Retro</Text>
-                        <Text style={styles.modalText}>Connect to cloud to access retro from anywhere.</Text>
-                        <Text style={styles.modalText}>(Retro cloud is currently not available)</Text>
-                        <Text style={styles.modalButton} onPress={this.skipCloudConfiguration.bind(this)}>Skip cloud setup</Text>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Connect to cloud to access retro from anywhere.</Text>
+                        <Text style={settingsStyles.modalText}>(Retro cloud is currently not available)</Text>
+                        <Text style={settingsStyles.modalButton} onPress={this.skipCloudConfiguration.bind(this)}>Skip cloud setup</Text>
                     </View>
                 </Modal>
             </View>

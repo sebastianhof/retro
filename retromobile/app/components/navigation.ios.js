@@ -7,7 +7,6 @@ import _ from 'lodash';
 import {connect} from 'react-redux';
 import {DashboardView} from './dashboard.ios';
 import {ItemsView} from './items.ios';
-import {AboutView} from './about.ios';
 import {HelpView} from './help.ios';
 import {SettingsView} from './settings.ios';
 import {UIActions} from '../actions/uiActions';
@@ -17,8 +16,7 @@ var {
     StyleSheet,
     Text,
     View,
-    Navigator,
-    TouchableHighlight
+    Navigator
     } = React;
 
 

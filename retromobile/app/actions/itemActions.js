@@ -25,13 +25,15 @@ export class ItemActions {
      *
      * @returns {Promise<U>|Promise.<T>}
      */
-    static fetchItems(protocol, host, port) {
+    static fetchItems() {
 
         Store.dispatch({
             type: REQUEST_ITEMS
         });
 
-        return fetch(`${protocol}${host}:${port}/api/items`)
+        let connectionLink = Store.getState().settings.connectionLink;
+
+        return fetch(`${connectionLink}/api/items`)
             .then(response => response.json())
             .then(json => Store.dispatch({
                 type: RECEIVE_ITEMS,

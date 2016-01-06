@@ -16,6 +16,8 @@ export const CONNECTED_TO_CLOUD = 'CONNECTED_TO_CLOUD';
 export const SET_USE_CLOUD = 'SET_USE_CLOUD';
 export const SET_CLOUD_ACCESS_TOKEN = 'SET_CLOUD_ACCESS_TOKEN';
 export const SET_HUB_HOST = 'SET_HUB_HOST';
+export const SET_CONNECTION_LINK = 'SET_CONNECTION_LINK';
+
 
 export class SettingsActions {
 
@@ -42,9 +44,15 @@ export class SettingsActions {
             })
             .then(json => {
                 // TODO add token and id;
+
+                Store.dispatch({
+                    type: SET_CONNECTION_LINK,
+                    value: `${protocol}${host}:${port}`
+                });
+
                 Promise.all([
-                    LocationActions.fetchLocations(protocol, host, port),
-                    ItemActions.fetchItems(protocol, host, port)
+                    LocationActions.fetchLocations(),
+                    ItemActions.fetchItems()
                 ]).then(() => {
 
                     if (isConnectedToCloud) {
@@ -60,6 +68,8 @@ export class SettingsActions {
                         });
 
                     }
+
+
 
                     StatusBarIOS.setNetworkActivityIndicatorVisible(false);
 
@@ -96,6 +106,10 @@ export class SettingsActions {
 
     }
 
+    /*
+     * Setup connection
+     */
+
     static setHubHost(hostName) {
 
         Store.dispatch({
@@ -122,4 +136,5 @@ export class SettingsActions {
         })
 
     }
+
 }

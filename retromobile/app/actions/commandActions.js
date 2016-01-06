@@ -11,11 +11,11 @@ export class CommandActions {
 
     static command(item, commandType, value) {
 
-        var item = _.cloneDeep(item);
+        let clonedItem = _.cloneDeep(item);
 
         Store.dispatch({
             type: SEND_COMMAND,
-            itemId: item.id,
+            itemId: clonedItem.id,
             commandType: commandType,
             value: value
         });
@@ -24,25 +24,25 @@ export class CommandActions {
 
         switch (commandType) {
             case CommandType.SET_BRIGHTNESS:
-                item.values['current'] = parseInt(value);
+                clonedItem.values['current'] = parseInt(value);
                 break;
             case CommandType.SET_COLOR:
-                item.values['color'] = value;
+                clonedItem.values['color'] = value;
                 break;
             case CommandType.SET_SWITCH:
-                item.values['on'] = value;
+                clonedItem.values['on'] = value;
                 break;
             case CommandType.SET_TEMP:
-                item.values['temp'] = parseInt(value);
+                clonedItem.values['temp'] = parseInt(value);
                 break;
             case CommandType.SET_LOCK:
-                item.values['closed'] = value;
+                clonedItem.values['closed'] = value;
                 break;
         }
 
         Store.dispatch({
             type: CONFIRM_COMMAND,
-            item: item
+            item: clonedItem
         });
 
     }

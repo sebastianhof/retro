@@ -5,15 +5,19 @@
  */
 import { createStore, combineReducers } from 'redux';
 import { ui } from '../reducers/uiReducers';
+import { devices } from '../reducers/deviceReducers';
 import { items } from '../reducers/itemReducers';
 import { locations } from '../reducers/locationReducers';
 import { settings } from '../reducers/settingsReducers';
+import { rules } from '../reducers/ruleReducers';
 
 let combinedReducers = combineReducers({
     ui,
     items,
     locations,
-    settings
+    settings,
+    devices,
+    rules
 });
 
 export var Store = createStore(combinedReducers);

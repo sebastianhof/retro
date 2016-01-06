@@ -11,12 +11,12 @@ const settingsStyles = StyleSheet.create({
         fontFamily: 'Open Sans',
         fontSize: 16,
         fontWeight: '500',
-        paddingTop: 16,
+        paddingTop: 24,
         paddingLeft: 16
     },
     settingsItemView: {
         flexDirection: 'row',
-        paddingTop: 16,
+        paddingTop: 24,
         paddingLeft: 16,
         paddingRight: 16,
         justifyContent: 'space-between'
@@ -29,7 +29,50 @@ const settingsStyles = StyleSheet.create({
     settingsItemSwitch: {
         alignSelf: 'flex-end'
     },
-    settingsButton: {}
+    settingsButton: {},
+    modalContainer: {
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+        justifyContent: 'center'
+    },
+    modalTitle: {
+        fontFamily: 'Open Sans',
+        fontSize: 20,
+        fontWeight: '500',
+        paddingBottom: 32,
+        alignSelf: 'center'
+    },
+    modalText: {
+        fontFamily: 'Open Sans',
+        fontSize: 16,
+        fontWeight: '300',
+        alignSelf: 'center'
+    },
+    modalButton: {
+        alignSelf: 'center',
+        fontFamily: 'Open Sans',
+        fontSize: 16,
+        fontWeight: '300',
+        marginTop: 32,
+        borderWidth: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 8,
+        paddingRight: 8
+    },
+    modalItemView: {
+        flexDirection: 'row',
+        paddingTop: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
+        alignSelf: 'center',
+        justifyContent: 'space-between'
+    },
+    modalItemText: {
+        fontFamily: 'Open Sans',
+        fontSize: 16,
+        fontWeight: '300'
+    }
 });
 
 export default settingsStyles;

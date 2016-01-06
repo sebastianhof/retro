@@ -2,7 +2,7 @@
 var _ = require('lodash');
 
 import {HubConnectionStatus} from '../models/settingsModel';
-import {CONNECTING_TO_HUB, CONNECTED_TO_HUB, NOT_CONNECTED_TO_HUB, NOT_FOUND_HUB, CONNECTED_TO_CLOUD, SET_USE_CLOUD, SET_CLOUD_ACCESS_TOKEN, SET_HUB_HOST} from '../actions/settingsActions';
+import {CONNECTING_TO_HUB, CONNECTED_TO_HUB, NOT_CONNECTED_TO_HUB, NOT_FOUND_HUB, CONNECTED_TO_CLOUD, SET_USE_CLOUD, SET_CLOUD_ACCESS_TOKEN, SET_HUB_HOST, SET_CONNECTION_LINK} from '../actions/settingsActions';
 
 //var {
 //    AsyncStorage
@@ -24,6 +24,7 @@ export function settings(state = {
     cloudProtocol: 'http://',
     cloudHost: 'retrocloud.herokuapp.com',
     cloudPort: 80,
+    connectionLink: null,
     cloudAccessToken: null,
     lastConnectionDate: null
 }, action = null) {
@@ -46,6 +47,8 @@ export function settings(state = {
             return _.assign({}, state, {hubConnectionStatus: HubConnectionStatus.NOT_CONNECTED});
         case NOT_FOUND_HUB:
             return _.assign({}, state, {hubConnectionStatus: HubConnectionStatus.NOT_FOUND});
+        case SET_CONNECTION_LINK:
+            return _.assign({}, state, {connectionLink: action.value});
         case SET_HUB_HOST:
             return _.assign({}, state, {hubHost: action.value});
         case SET_CLOUD_ACCESS_TOKEN:

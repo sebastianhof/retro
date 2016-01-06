@@ -12,13 +12,15 @@ export class LocationActions {
      *
      * @returns {Promise<U>|Promise.<T>}
      */
-    static fetchLocations(protocol, host, port) {
+    static fetchLocations() {
 
         Store.dispatch({
             type: REQUEST_LOCATIONS
         });
 
-        return fetch(`${protocol}${host}:${port}/api/locations`)
+        let connectionLink = Store.getState().settings.connectionLink;
+
+        return fetch(`${connectionLink}/api/locations`)
             .then(response => response.json())
             .then(json => Store.dispatch({
                 type: RECEIVE_LOCATIONS,

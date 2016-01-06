@@ -1,11 +1,17 @@
 'use strict';
 import React from  'react-native';
 import NavigationBar from 'react-native-navbar';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+import {DeviceActions} from '../../actions/deviceActions';
+import {connect} from 'react-redux';
+import settingsStyles from './styles';
 
 var {
     StyleSheet,
     Text,
-    View
+    View,
+    Modal
     } = React;
 
 var styles = StyleSheet.create({
@@ -13,11 +19,30 @@ var styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F5FCFF'
     },
+    rightNavigationBarIcon: {
+        marginRight: 16
+    }
 });
 
-export class SetupDevicesView extends React.Component {
+
+class SetupDevicesViewComponent extends React.Component {
+
+
+    componentDidMount() {
+        DeviceActions.fetchDevices();
+    }
+
+    addDevice() {
+
+    }
 
     render() {
+
+        let rightNavigationBarIcon = (
+            <Icon name="plus" size={24} color='#ffffff' style={styles.rightNavigationBarIcon} onPress={() => {
+                this.addDevice.bind(this)
+            }}/>
+        );
 
         return (
             <View style={styles.container}>
@@ -29,11 +54,25 @@ export class SetupDevicesView extends React.Component {
                           tintColor: '#ffffff',
                           handler: () => this.props.navigator.pop()
                     }}
+                    rightButton={rightNavigationBarIcon}
                 />
-                <Text>Setup Devices</Text>
+                <Modal animate={true} visible={this.props.ui.isFetching}>
+                    <View style={settingsStyles.modalContainer}>
+                        <Text style={settingsStyles.modalTitle}>Retro</Text>
+                        <Text style={settingsStyles.modalText}>Searching for devices...</Text>
+                    </View>
+                </Modal>
+
             </View>
         )
 
     }
 
 }
+
+export const SetupDevicesView = connect(function mapStateToProps(state) {
+    return {
+        settings: state.settings,
+        ui: state.ui
+    }
+})(SetupDevicesViewComponent);
