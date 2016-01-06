@@ -2,34 +2,38 @@
 import React from  'react-native';
 import NavigationBar from 'react-native-navbar';
 
-import {connect} from 'react-redux';
-import {LeftNavigationBarIcon} from './navigation.ios';
-
 var {
     StyleSheet,
     Text,
-    View,
+    View
     } = React;
 
 var styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#F5FCFF'
-    }
+    },
 });
 
-export class AboutView extends React.Component {
+export class SetupLocationsView extends React.Component {
 
     render() {
+
         return (
             <View style={styles.container}>
                 <NavigationBar
                     tintColor='#6d5cae'
-                    title={{ title: 'About', tintColor: '#ffffff' }}
-                    leftButton={LeftNavigationBarIcon}
+                    title={{ title: 'Setup locations', tintColor: '#ffffff' }}
+                    leftButton={{
+                          title: 'Back',
+                          tintColor: '#ffffff',
+                          handler: () => this.props.navigator.pop()
+                    }}
                 />
-                <Text>About</Text>
+                <Text>Setup Locations</Text>
             </View>
-        );
+        )
+
     }
+
 }

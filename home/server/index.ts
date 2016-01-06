@@ -44,7 +44,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(function (username, password, done) {
 
-    UserDatastore.getInstance().getUser({username: username}).then(function (user: UserModel) {
+    UserDatastore.getInstance().getUser({username: username}).then(function (user:UserModel) {
 
         var bcrypt = require('bcrypt-nodejs');
         if (bcrypt.compareSync(password, user.password)) {
@@ -81,6 +81,9 @@ app.use(express.static(path.join(__dirname, '../dist/app')));
 app.use(express.static(path.join(__dirname, '../dist/public')));
 
 // Setup modules
+app.get('/api/connect', function (req, res) {
+    res.send({id: '123456789', token: '123456789' });
+});
 
 // Init hub
 RetroHub.init();
@@ -101,3 +104,7 @@ var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log('Retro is listening at http://%s:%s', host, port);
 });
+
+// Bonjour
+var bonjour = require('bonjour')();
+bonjour.publish({ name: 'RetroHub:123456789', type: 'http', port: 3000 });

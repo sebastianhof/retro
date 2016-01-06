@@ -3,7 +3,7 @@ import {Store} from '../stores/store';
 export const OPEN_SIDEMENU = 'OPEN_SIDEMENU';
 export const CLOSE_SIDEMENU = 'CLOSE_SIDEMENU';
 
-export class AppActions {
+export class UIActions {
 
     static openSideMenu() {
         Store.dispatch({

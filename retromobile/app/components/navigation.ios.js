@@ -1,9 +1,10 @@
 'use strict';
-var React = require('react-native');
-var SideMenu = require('react-native-side-menu');
-var Icon = require('react-native-vector-icons/FontAwesome');
-var _ = require('lodash');
+import React from  'react-native';
+import SideMenu from 'react-native-side-menu';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import _ from 'lodash';
 
+import {connect} from 'react-redux';
 import {DashboardView} from './dashboard.ios';
 import {ItemsView} from './items.ios';
 import {AboutView} from './about.ios';
@@ -16,7 +17,8 @@ var {
     StyleSheet,
     Text,
     View,
-    Navigator
+    Navigator,
+    TouchableHighlight
     } = React;
 
 
@@ -28,14 +30,24 @@ var styles = StyleSheet.create({
         backgroundColor: '#F5FCFF'
     },
     sideMenu: {
-        paddingTop: 50,
+        backgroundColor: '#2b303b',
+        paddingTop: 50
     },
     sideMenuTitle: {
         color: '#FFFFFF',
         fontFamily: 'Open Sans',
         fontSize: 20,
-        fontWeight: 'bold',
-        paddingTop: 10,
+        fontWeight: '500',
+        paddingTop: 20,
+        paddingBottom: 5,
+        paddingLeft: 30,
+        paddingRight: 30
+    },
+    sideMenuDescription: {
+        color: '#FFFFFF',
+        fontFamily: 'Open Sans',
+        fontSize: 12,
+        paddingTop: 5,
         paddingBottom: 10,
         paddingLeft: 30,
         paddingRight: 30
@@ -67,10 +79,13 @@ var styles = StyleSheet.create({
     },
     sideMenuSecondaryItemActive: {
         color: '#FFFFFF'
+    },
+    leftNavigationBarIcon: {
+        marginLeft: 16
     }
 });
 
-class IntialView extends React.Component {
+class InitialView extends React.Component {
 
     render() {
         const menu = <SideMenuView navigator={this.props.navigator}/>;
@@ -78,7 +93,7 @@ class IntialView extends React.Component {
         /* isOpen not working at the moment */
         return (
             <SideMenu menu={menu} isOpen={false}>
-                <DashboardView />
+                <DashboardView navigator={this.props.navigator}/>
             </SideMenu>
         );
     }
@@ -86,65 +101,6 @@ class IntialView extends React.Component {
 }
 
 class SideMenuView extends React.Component {
-
-    sideMenuItems = [
-        {
-            key: 'dashboard',
-            component: DashboardView,
-            title: 'Dashboard'
-        },
-        {
-            key: 'climate',
-            component: () => <ItemsView category={ItemCategory.CLIMATE}/>,
-            title: 'Climate'
-        },
-        {
-            key: 'lighting',
-            component: () => <ItemsView category={ItemCategory.LIGHTING}/>,
-            title: 'Lighting'
-        },
-        {
-            key: 'appliances',
-            component: () => <ItemsView category={ItemCategory.APPLIANCES}/>,
-            title: 'Appliances'
-        },
-        {
-            key: 'security',
-            component: () => <ItemsView category={ItemCategory.SECURITY}/>,
-            title: 'Security'
-        },
-        {
-            key: 'outdoor',
-            component: () => <ItemsView category={ItemCategory.OUTDOOR}/>,
-            title: 'Outdoor'
-        },
-        {
-            key: 'car',
-            component: () => <ItemsView category={ItemCategory.CAR}/>,
-            title: 'Car'
-        }
-    ];
-
-    secondarySideMenuItems = [
-        {
-            key: 'settings',
-            component: SettingsView,
-            title: 'Settings',
-            icon: 'cogs'
-        },
-        {
-            key: 'help',
-            component: HelpView,
-            title: 'Help',
-            icon: 'question-circle'
-        },
-        {
-            key: 'about',
-            component: AboutView,
-            title: 'About',
-            icon: 'info-circle'
-        }
-    ];
 
     navigate(sideMenuItem) {
         //UIActions.closeSideMenu();
@@ -161,12 +117,79 @@ class SideMenuView extends React.Component {
     }
 
     render() {
+
+        let sideMenuItems = [
+            {
+                key: 'dashboard',
+                component: DashboardView,
+                title: 'Dashboard'
+            },
+            {
+                key: 'climate',
+                component: () => {
+                    return <ItemsView category={ItemCategory.CLIMATE}/>;
+                },
+                title: 'Climate'
+            },
+            {
+                key: 'lighting',
+                component: () => {
+                    return <ItemsView category={ItemCategory.LIGHTING}/>
+                },
+                title: 'Lighting'
+            },
+            {
+                key: 'appliances',
+                component: () => {
+                    return <ItemsView category={ItemCategory.APPLIANCES}/>
+                },
+                title: 'Appliances'
+            },
+            {
+                key: 'security',
+                component: () => {
+                    return <ItemsView category={ItemCategory.SECURITY}/>
+                },
+                title: 'Security'
+            },
+            {
+                key: 'outdoor',
+                component: () => {
+                    return <ItemsView category={ItemCategory.OUTDOOR}/>
+                },
+                title: 'Outdoor'
+            },
+            {
+                key: 'car',
+                component: () => {
+                    return <ItemsView category={ItemCategory.CAR}/>
+                },
+                title: 'Car'
+            }
+        ];
+
+        let secondarySideMenuItems = [
+            {
+                key: 'settings',
+                component: SettingsView,
+                title: 'Settings',
+                icon: 'cogs'
+            },
+            {
+                key: 'help',
+                component: HelpView,
+                title: 'Help',
+                icon: 'question-circle'
+            }
+        ];
+
+        //<Text style={styles.sideMenuDescription}>Smart home control</Text>
+
         return (
             <View style={styles.sideMenu}>
                 <Text style={styles.sideMenuTitle}>Retro</Text>
-
                 {
-                    _.map(this.sideMenuItems, (sideMenuItem) => {
+                    _.map(sideMenuItems, (sideMenuItem) => {
 
                         return (<Text key={sideMenuItem.key} onPress={this.navigate.bind(this, sideMenuItem)}
                                       style={[styles.sideMenuItem, this.isActive(sideMenuItem) && styles.sideMenuItemActive]}>{sideMenuItem.title}</Text>);
@@ -178,7 +201,7 @@ class SideMenuView extends React.Component {
 
                     {
 
-                        _.map(this.secondarySideMenuItems, (sideMenuItem) => {
+                        _.map(secondarySideMenuItems, (sideMenuItem) => {
 
                             return (<Icon key={sideMenuItem.key} name={sideMenuItem.icon} size={25} color="#788195"
                                           onPress={this.navigate.bind(this, sideMenuItem)}
@@ -189,7 +212,7 @@ class SideMenuView extends React.Component {
 
                     }
 
-                    <Icon name="sign-out" size={25} color="#788195"  style={styles.sideMenuSecondaryItem} />
+                    <Icon name="sign-out" size={25} color="#788195" style={styles.sideMenuSecondaryItem}/>
 
                 </View>
             </View>
@@ -198,18 +221,19 @@ class SideMenuView extends React.Component {
 
 }
 
-export class NavigationView extends React.Component {
+export class NavigationViewComponent extends React.Component {
 
     render() {
+
         return (
-            <Navigator initialRoute={{component: IntialView, title: 'Retro'}}
+            <Navigator initialRoute={{component: InitialView, title: 'Retro'}}
                        renderScene={(route, navigator) => {
                             if(route.component) {
                                 const menu = <SideMenuView navigator={navigator} route={route} />;
 
                                 /* isOpen not working at the moment */
                                 return (
-                                    <SideMenu menu={menu} isOpen={false}>
+                                    <SideMenu menu={menu} isOpen={this.props.ui.showSideMenu}>
                                         { React.createElement(route.component, { navigator }) }
                                     </SideMenu>
                                 )
@@ -222,3 +246,14 @@ export class NavigationView extends React.Component {
 
 }
 
+export const NavigationView = connect(function mapStateToProps(state) {
+    return {
+        ui: state.ui,
+        settings: state.settings
+    }
+})(NavigationViewComponent);
+
+export const LeftNavigationBarIcon = (
+    <Icon name="bars" size={24} color='#ffffff' onPress={() => { UIActions.openSideMenu(); }}
+          style={styles.leftNavigationBarIcon}/>
+);

@@ -11,6 +11,7 @@
     "animate.css": "^3.4.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
+    "bonjour": "^3.0.0",
     "bootstrap": "^3.3.6",
     "bower-webpack-plugin": "^0.1.9",
     "cookie-parser": "^1.4.0",
@@ -64,7 +65,7 @@
   "scripts": {
     "buildserver": "grunt buildserver",
     "buildclient": "webpack --config webpack.public.config && webpack --config webpack.app.config",
-    "postinstall":  "npm run buildserver && npm run buildclient",
+    "postinstall": "npm run buildserver && npm run buildclient",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sebastian Hof <mail@sebastianhof.com>",

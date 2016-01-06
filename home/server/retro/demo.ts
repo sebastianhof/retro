@@ -191,7 +191,8 @@ export class RetroDemo {
                 title: 'Withings',
                 values: <BodyWeightValues> {
                     weight: 73,
-                    fat: 18.2
+                    fat: 18.2,
+                    bmi: 24.4
                 }
             };
 
@@ -202,10 +203,7 @@ export class RetroDemo {
                 category: ItemCategory.LIGHTING,
                 title: 'Bathroom',
                 values: <DimmerValues> {
-                    on: false,
-                    current: 50,
-                    min: 0,
-                    max: 100
+                    current: 50
                 }
             };
 
@@ -309,10 +307,11 @@ export class RetroDemo {
                 category: ItemCategory.CLIMATE,
                 title: 'Garden',
                 values: <WeatherStationValues> {
-                    temperature: 23,
-                    humidity: 59,
-                    airpressure: 1020,
-                    co2: 485
+                    temp: -2,
+                    humidity: 99,
+                    feelsLike: -4,
+                    pressure: 1028,
+                    co2: 335
                 }
             };
 

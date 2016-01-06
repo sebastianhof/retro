@@ -28,6 +28,7 @@ export enum ItemType {
     WINDOW_CONTACT = 41,
     CCTV = 42,
     SMOKE_DETECTOR = 43,
+    DOOR_CONTACT = 44,
     // outdoor
     PLANT_SENSOR = 50,
 
@@ -71,8 +72,9 @@ export interface ThermostatValues extends ItemValues {
 
 export interface WeatherStationValues extends ItemValues {
     temperature?: number,
+    pressure?: number,
+    feelsLike?: number,
     humidity?: number,
-    airpressure?: number,
     co2?: number
 }
 
@@ -81,10 +83,7 @@ export interface LightValues extends ItemValues {
 }
 
 export interface DimmerValues extends ItemValues {
-    on: boolean,
-    current?: number,
-    min?: number,
-    max?: number
+    current?: number
 }
 
 export interface ColorLightValues extends ItemValues {
@@ -93,11 +92,8 @@ export interface ColorLightValues extends ItemValues {
 }
 
 export interface ColorDimmerValues extends ItemValues {
-    on: boolean,
     color: string,
-    current?: number,
-    min?: number,
-    max?: number
+    current?: number
 }
 
 export interface SwitchValues extends ItemValues {
@@ -106,7 +102,8 @@ export interface SwitchValues extends ItemValues {
 
 export interface BodyWeightValues extends ItemValues {
     weight?: number,
-    fat?: number
+    fat?: number,
+    bmi?: number
 }
 
 export interface HeartRateMonitorValues extends ItemValues {
@@ -116,6 +113,10 @@ export interface HeartRateMonitorValues extends ItemValues {
 }
 
 export interface DoorLockValues extends ItemValues {
+    closed: boolean
+}
+
+export interface DoorContactValues extends ItemValues {
     closed: boolean
 }
 

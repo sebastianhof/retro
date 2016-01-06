@@ -28,6 +28,7 @@ export const ItemType = {
     WINDOW_CONTACT: 41,
     CCTV: 42,
     SMOKE_DETECTOR: 43,
+    DOOR_CONTACT: 44,
     // outdoor
     PLANT_SENSOR: 50,
     // car
@@ -44,3 +45,24 @@ export const ItemCategory = {
     OUTDOOR: 4,
     CAR: 5
 };
+
+export function itemCategoryToTitle(itemCategory) {
+
+    switch (itemCategory) {
+        case ItemCategory.APPLIANCES:
+            return 'Appliances';
+        case ItemCategory.CAR:
+            return 'Car';
+        case ItemCategory.CLIMATE:
+            return 'Climate';
+        case ItemCategory.LIGHTING:
+            return 'Lighting';
+        case ItemCategory.OUTDOOR:
+            return 'Outdoor';
+        case ItemCategory.SECURITY:
+            return 'Security';
+        default:
+            return '';
+    }
+
+}

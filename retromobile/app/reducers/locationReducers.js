@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 import {RECEIVE_LOCATIONS} from "../actions/locationActions";
 
 export function locations(state = [], action = null) {

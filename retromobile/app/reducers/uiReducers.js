@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 import {OPEN_SIDEMENU, CLOSE_SIDEMENU} from '../actions/uiActions';
 import {REQUEST_ITEMS, RECEIVE_ITEMS} from '../actions/itemActions';
 import {REQUEST_LOCATIONS, RECEIVE_LOCATIONS} from '../actions/locationActions';

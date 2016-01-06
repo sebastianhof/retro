@@ -1,5 +1,8 @@
+import {_} from 'lodash';
+
 import {CommandType} from '../models/commandModel';
 import {Store} from '../stores/store';
+
 
 export const SEND_COMMAND = 'SEND_COMMAND';
 export const CONFIRM_COMMAND = 'CONFIRM_COMMAND';
@@ -7,6 +10,8 @@ export const CONFIRM_COMMAND = 'CONFIRM_COMMAND';
 export class CommandActions {
 
     static command(item, commandType, value) {
+
+        var item = _.cloneDeep(item);
 
         Store.dispatch({
             type: SEND_COMMAND,

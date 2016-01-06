@@ -1,3 +1,6 @@
+var _ = require('lodash');
+
+
 import {CONFIRM_COMMAND} from '../actions/commandActions';
 import {RECEIVE_ITEMS, UPDATE_ITEM} from '../actions/itemActions';
 
