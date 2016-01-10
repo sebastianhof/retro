@@ -3,6 +3,7 @@ import {Store} from '../stores/store';
 import React from  'react-native';
 import {ItemActions} from './itemActions';
 import {LocationActions} from './locationActions';
+import {DashboardActions} from './dashboardActions';
 
 var {
     StatusBarIOS
@@ -51,6 +52,7 @@ export class SettingsActions {
                 });
 
                 Promise.all([
+                    DashboardActions.fetchDashboard(),
                     LocationActions.fetchLocations(),
                     ItemActions.fetchItems()
                 ]).then(() => {
@@ -68,7 +70,6 @@ export class SettingsActions {
                         });
 
                     }
-
 
 
                     StatusBarIOS.setNetworkActivityIndicatorVisible(false);

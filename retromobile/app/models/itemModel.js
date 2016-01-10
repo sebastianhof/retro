@@ -46,6 +46,69 @@ export const ItemCategory = {
     CAR: 5
 };
 
+export function itemTypeToTitle(itemType) {
+
+    switch (itemType) {
+        case ItemType.AIR_CONDITIONING:
+            return 'Air conditioning';
+        case ItemType.AIR_PURIFIER:
+            return 'Air purifier';
+        case ItemType.BODY_WEIGHT:
+            return 'Body weight';
+        case ItemType.CCTV:
+            return 'CCTV';
+        case ItemType.COFFEE_MACHINE:
+            return 'Coffee machine';
+        case ItemType.COLOR_DIMMER:
+            return 'Color dimmer';
+        case ItemType.COLOR_LIGHT:
+            return 'Color light';
+        case ItemType.COOKER_HOOD:
+            return 'Cooker hood';
+        case ItemType.DIMMER:
+            return 'Dimmer';
+        case ItemType.DISH_WASHER:
+            return 'Dish washer';
+        case ItemType.DOOR_CONTACT:
+            return 'Door contact';
+        case ItemType.DOOR_LOCK:
+            return 'Door lock';
+        case ItemType.GARAGE_DOOR:
+            return 'Garage door';
+        case ItemType.HEART_RATE_MONITOR:
+            return 'Heart rate monitor';
+        case ItemType.HOT_PLATE:
+            return 'Hot plate';
+        case ItemType.LIGHT:
+            return 'Light';
+        case ItemType.MICROWAVE:
+            return 'Microwave';
+        case ItemType.OVEN:
+            return 'Oven';
+        case ItemType.PLANT_SENSOR:
+            return 'Plant sensor';
+        case ItemType.REFRIGERATOR:
+            return 'Refrigerator';
+        case ItemType.SMOKE_DETECTOR:
+            return 'Smoke detector';
+        case ItemType.SWITCH:
+            return 'Switch';
+        case ItemType.THERMOSTAT:
+            return 'Thermostat';
+        case ItemType.VENTILATOR:
+            return 'Ventilator';
+        case ItemType.WASHING_MACHINE:
+            return 'Washing machine';
+        case ItemType.WEATHER_STATION:
+            return 'Weather station';
+        case ItemType.WINDOW_CONTACT:
+            return 'Window contact';
+        case ItemType.WINDOW_SHUTTER:
+            return 'Window shutter';
+    }
+
+}
+
 export function itemCategoryToTitle(itemCategory) {
 
     switch (itemCategory) {

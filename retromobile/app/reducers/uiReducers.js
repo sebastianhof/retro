@@ -5,6 +5,7 @@ import {REQUEST_ITEMS, RECEIVE_ITEMS} from '../actions/itemActions';
 import {REQUEST_LOCATIONS, RECEIVE_LOCATIONS} from '../actions/locationActions';
 import {REQUEST_DEVICES, RECEIVE_DEVICES} from '../actions/deviceActions';
 import {REQUEST_RULES, RECEIVE_RULES} from '../actions/ruleActions';
+import {REQUEST_DASHBOARD, RECEIVE_DASHBOARD} from '../actions/dashboardActions';
 
 export function ui(state = {
     showSideMenu: false,
@@ -16,11 +17,13 @@ export function ui(state = {
         case REQUEST_LOCATIONS:
         case REQUEST_DEVICES:
         case REQUEST_RULES:
+        case REQUEST_DASHBOARD:
             return _.assign({}, state, {isFetching: true});
         case RECEIVE_ITEMS:
         case RECEIVE_LOCATIONS:
         case RECEIVE_DEVICES:
         case RECEIVE_RULES:
+        case RECEIVE_DASHBOARD:
             return _.assign({}, state, {isFetching: false});
         case OPEN_SIDEMENU:
             return _.assign({}, state, {showSideMenu: true});

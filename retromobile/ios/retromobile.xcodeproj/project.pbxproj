@@ -25,6 +25,7 @@
 		C42544681C3797E300D8C40C /* RetroDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42544671C3797E300D8C40C /* RetroDiscovery.swift */; };
 		C457F9481C3AD91900272F41 /* RetroDiscoveryBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C457F9471C3AD91900272F41 /* RetroDiscoveryBridge.m */; };
 		C47E31EA1C310B29008E4F74 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C47E31E91C310B0A008E4F74 /* libRNVectorIcons.a */; };
+		C4D216471C3F9B560054B03F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D216461C3F9B560054B03F /* HomeKit.framework */; };
 		C4D9144B1C300A7C00112C3E /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D914411C300A7C00112C3E /* OpenSans-Bold.ttf */; };
 		C4D9144C1C300A7C00112C3E /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D914421C300A7C00112C3E /* OpenSans-BoldItalic.ttf */; };
 		C4D9144D1C300A7C00112C3E /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D914431C300A7C00112C3E /* OpenSans-ExtraBold.ttf */; };
@@ -157,6 +158,8 @@
 		C42544671C3797E300D8C40C /* RetroDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetroDiscovery.swift; sourceTree = "<group>"; };
 		C457F9471C3AD91900272F41 /* RetroDiscoveryBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetroDiscoveryBridge.m; sourceTree = "<group>"; };
 		C47E31DA1C310B0A008E4F74 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		C4D216461C3F9B560054B03F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		C4D216481C3F9B560054B03F /* retromobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = retromobile.entitlements; path = retromobile/retromobile.entitlements; sourceTree = "<group>"; };
 		C4D914411C300A7C00112C3E /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "resources/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		C4D914421C300A7C00112C3E /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "resources/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C4D914431C300A7C00112C3E /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "resources/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				C4D216471C3F9B560054B03F /* HomeKit.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
@@ -281,6 +285,7 @@
 		13B07FAE1A68108700A75B9A /* retromobile */ = {
 			isa = PBXGroup;
 			children = (
+				C4D216481C3F9B560054B03F /* retromobile.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -340,6 +345,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C4D216461C3F9B560054B03F /* HomeKit.framework */,
 				C4D914401C300A5B00112C3E /* resources */,
 				13B07FAE1A68108700A75B9A /* retromobile */,
 				00E356EF1AD99517003FC87E /* retromobileTests */,
@@ -445,6 +451,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = J43U85A82H;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -733,7 +744,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = retromobile/retromobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -746,6 +759,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.retromobile;
 				PRODUCT_NAME = retromobile;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "retromobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -756,7 +770,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = retromobile/retromobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -768,6 +784,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.retromobile;
 				PRODUCT_NAME = retromobile;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "retromobile-Bridging-Header.h";
 			};
 			name = Release;

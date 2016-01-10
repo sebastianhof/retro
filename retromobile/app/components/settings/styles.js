@@ -26,8 +26,31 @@ const settingsStyles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '300'
     },
+    settingsItemTextInput: {
+        height: 40,
+        marginTop: 8,
+        marginLeft: 16,
+        marginRight: 16,
+        borderColor: '#6d5cae',
+        borderWidth: 1,
+        fontFamily: 'Open Sans',
+        fontSize: 16,
+        fontWeight: '300'
+    },
     settingsItemSwitch: {
         alignSelf: 'flex-end'
+    },
+    settingsConfirmButton: {
+        fontFamily: 'Open Sans',
+        fontSize: 16,
+        fontWeight: '300',
+        marginTop: 32,
+        borderWidth: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 8,
+        paddingRight: 8,
+        alignSelf: 'center'
     },
     settingsButton: {},
     modalContainer: {

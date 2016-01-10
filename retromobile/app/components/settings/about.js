@@ -39,7 +39,7 @@ var styles = StyleSheet.create({
         paddingTop: 24,
         paddingLeft: 16,
         paddingRight: 16,
-        justifyContent: 'space-between',
+        justifyContent: 'space-between'
     },
     aboutItemText: {
         fontFamily: 'Open Sans',
@@ -88,7 +88,7 @@ export class AboutView extends React.Component {
                                 return (
                                     <View>
                                         <Text style={styles.retroTitle}>Retro</Text>
-                                        <Text style={styles.retroDescription}>Version 0.0.1 (Build 0001)</Text>
+                                        <Text style={styles.retroDescription}>Version 0.1 (Build 1)</Text>
                                         <Text style={styles.retroDescription}>Copyright © 2016. Retro</Text>
                                         <Text style={styles.retroDescription}>All rights reserved.</Text>
                                     </View>
@@ -290,7 +290,7 @@ export class FeedbackView extends React.Component {
                                 return (
                                     <View>
                                         <TouchableOpacity style={styles.aboutItemView} onPress={() => {
-                                        LinkingIOS.openURL("itms-apps://itunes.apple.com/app/123456789");
+                                        LinkingIOS.openURL("itms-apps://itunes.apple.com/app/1073037231");
                                       }}>
                                             <Text style={styles.aboutItemText}>Rate us on App Store</Text>
                                             <Icon name="apple" size={24} color='#6d5cae'

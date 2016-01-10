@@ -53,7 +53,6 @@ const SETTINGS_ABOUT = 6;
 const SETTINGS_ABOUT_RETRO = 60;
 const SETTINGS_ABOUT_CONTACT = 61;
 const SETTINGS_ABOUT_FEEDBACK = 62;
-const SETTINGS_ABOUT_VERSION = 63;
 
 class SettingsViewComponent extends React.Component {
 
@@ -84,8 +83,7 @@ class SettingsViewComponent extends React.Component {
             [SETTINGS_ABOUT]: [
                 SETTINGS_ABOUT_RETRO,
                 SETTINGS_ABOUT_CONTACT,
-                SETTINGS_ABOUT_FEEDBACK,
-                SETTINGS_ABOUT_VERSION
+                SETTINGS_ABOUT_FEEDBACK
             ]
         }, [SETTINGS_HUB, SETTINGS_SETUP, SETTINGS_ABOUT]) // Use cloud SETTINGS_CLOUD,
     };
@@ -280,11 +278,6 @@ class SettingsViewComponent extends React.Component {
                                         style={settingsStyles.settingsButton}/>
                                 </View>
                                 </TouchableOpacity>);
-                            case SETTINGS_ABOUT_VERSION:
-                                return (<View style={settingsStyles.settingsItemView}>
-                                    <Text style={settingsStyles.settingsItemText}>Version</Text>
-                                     <Text style={settingsStyles.settingsItemText}>0.0.1</Text>
-                                </View>);
                         }
 
                         return (<Text>0</Text>);

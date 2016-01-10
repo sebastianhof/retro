@@ -1,5 +1,9 @@
 export const DashboardType = {
     ITEM: 0,
-    SHORTCUT: 1,
-    GRAPH: 2
+    COMMAND: 1,
+    CHART: 2
 };
+
+export const DashboardChartType = {
+    LINE_CHART: 0
+}

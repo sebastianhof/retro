@@ -10,6 +10,7 @@ import { items } from '../reducers/itemReducers';
 import { locations } from '../reducers/locationReducers';
 import { settings } from '../reducers/settingsReducers';
 import { rules } from '../reducers/ruleReducers';
+import { dashboard } from '../reducers/dashboardReducers';
 
 let combinedReducers = combineReducers({
     ui,
@@ -17,7 +18,8 @@ let combinedReducers = combineReducers({
     locations,
     settings,
     devices,
-    rules
+    rules,
+    dashboard
 });
 
 export var Store = createStore(combinedReducers);
