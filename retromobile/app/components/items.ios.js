@@ -244,7 +244,7 @@ class ItemsViewComponent extends React.Component {
                             case ItemType.BODY_WEIGHT:
                                 return (<BodyWeightView item={item} />);
                             case ItemType.CCTV:
-                                return (<CCTVView item={item} />);
+                                return (<CCTVView item={item} navigator={this.props.navigator} />);
                             case ItemType.COFFEE_MACHINE:
                                 return (<Text key={item.id}>{item.title}</Text>);
                             case ItemType.COLOR_DIMMER:

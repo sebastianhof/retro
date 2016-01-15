@@ -1,5 +1,9 @@
 'use strict';
 import React from 'react-native';
+import Video from 'react-native-video';
+import NavigationBar from 'react-native-navbar';
+
+import { connect } from 'react-redux'
 import {CommandActions} from '../../actions/commandActions'
 import {CommandType} from '../../models/commandModel'
 import itemStyles from './styles'
@@ -12,33 +16,106 @@ var {
     Text,
     View,
     Switch,
-    SliderIOS
+    Image,
+    TouchableHighlight
     } = React;
 
 var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#F5FCFF'
+    },
     cctvView: {
-        height: 250,
         paddingTop: 16,
         paddingBottom: 16,
         paddingLeft: 16,
         paddingRight: 16
+    },
+    cctvImage: {
+        height: 200
+    },
+    cctvVideoContainer: {
+        flex: 1,
+        backgroundColor: '#000000'
+    },
+    cctvVideo: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0
     }
 });
 
-export class CCTVView extends React.Component {
+class CCTVVideoViewComponent extends React.Component {
+
+    streamUrl() {
+        return `${this.props.settings.connectionLink}/api/items/${this.props.item.id}/stream/play.m3u8`
+    }
 
     render() {
+
+        return (
+            <View style={styles.cctvVideoContainer}>
+                <TouchableHighlight style={styles.cctvVideo} onPress={() => this.props.navigator.pop()}>
+                    <Video style={styles.cctvVideo} resizeMode="contain" source={{uri: this.streamUrl()}}/>
+                </TouchableHighlight>
+            </View>
+        )
+    }
+
+}
+
+export const CCTVVideoView = connect(function mapStateToProps(state) {
+    return {
+        settings: state.settings
+    }
+})(CCTVVideoViewComponent);
+
+
+export class CCTVViewComponent extends React.Component {
+
+    imageUrl() {
+        return `${this.props.settings.connectionLink}/api/items/${this.props.item.id}/capture.jpg`
+    }
+
+    openVideo() {
+
+        if (this.props.navigator != null) {
+            this.props.navigator.push({
+                component: () => {
+                    return <CCTVVideoView navigator={this.props.navigator} item={this.props.item}/>
+                },
+                title: 'Video'
+            });
+        }
+    }
+
+    render() {
+
+        console.log(this.props.navigator);
 
         return (<View style={[itemStyles.container, { backgroundColor: '#6d5cae'}]}>
             <Text style={[itemStyles.itemTitle]}>{this.props.item.title} camera</Text>
             <View style={styles.cctvView}>
-                <Text>Camera preview comes here</Text>
+                <TouchableHighlight onPress={this.openVideo.bind(this)}>
+                    <Image style={styles.cctvImage}
+                           source={{uri: this.imageUrl()}}
+                           resizeMode="cover"
+                    />
+                </TouchableHighlight>
             </View>
         </View>);
 
     }
 
 }
+
+export const CCTVView = connect(function mapStateToProps(state) {
+    return {
+        settings: state.settings
+    }
+})(CCTVViewComponent);
 
 export class DoorLockView extends React.Component {
 

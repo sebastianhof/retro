@@ -133,7 +133,7 @@ export class WeatherStationView extends React.Component {
 
         return (<View style={[itemStyles.container, { backgroundColor: '#6d5cae'}]}>
                 <Text style={[itemStyles.itemTitle]}>{this.props.item.title} weather station</Text>
-                <Text style={[itemStyles.itemMainValue]}>{values.temp}°</Text>
+                <Text style={[itemStyles.itemMainValue]}>{values.temperature}°</Text>
                 {pressure}
                 {feelsLike}
                 {humidity}
