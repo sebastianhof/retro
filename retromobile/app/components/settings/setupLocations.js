@@ -26,10 +26,6 @@ var styles = StyleSheet.create({
 
 class SetupLocationsViewComponent extends React.Component {
 
-    componentDidMount() {
-        LocationActions.fetchLocations();
-    }
-
     addLocation() {
 
     }

@@ -26,10 +26,6 @@ var styles = StyleSheet.create({
 
 class SetupRulesViewComponent extends React.Component {
 
-    componentDidMount() {
-        RuleActions.fetchRules();
-    }
-
     addRule() {
 
     }

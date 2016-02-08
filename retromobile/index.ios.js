@@ -6,6 +6,7 @@ import {Store} from './app/stores/store';
 import {NavigationView} from './app/components/navigation.ios';
 import {SettingsActions} from './app/actions/settingsActions';
 
+
 var {
     NetInfo,
     AppRegistry,

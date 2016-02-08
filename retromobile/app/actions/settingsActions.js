@@ -1,13 +1,13 @@
 'use strict';
 import {Store} from '../stores/store';
 import React from  'react-native';
-import {ItemActions} from './itemActions';
-import {LocationActions} from './locationActions';
-import {DashboardActions} from './dashboardActions';
+import {DeviceActions, RECEIVE_DEVICES} from './deviceActions';
+import {ItemActions, RECEIVE_ITEMS} from './itemActions';
+import {LocationActions, RECEIVE_LOCATIONS} from './locationActions';
+import {RuleActions, RECEIVE_RULES} from './ruleActions';
+import {DashboardActions, RECEIVE_DASHBOARD} from './dashboardActions';
 
-var {
-    StatusBarIOS
-    } = React;
+import {RetroConnection} from '../services/connection';
 
 export const CONNECTING_TO_HUB = 'CONNECTING_TO_HUB';
 export const CONNECTED_TO_HUB = 'CONNECTED_TO_HUB';
@@ -19,83 +19,65 @@ export const SET_CLOUD_ACCESS_TOKEN = 'SET_CLOUD_ACCESS_TOKEN';
 export const SET_HUB_HOST = 'SET_HUB_HOST';
 export const SET_CONNECTION_LINK = 'SET_CONNECTION_LINK';
 
-
 export class SettingsActions {
 
-    static connect(protocol, host, port, isConnectedToCloud) {
+    static connection: io.Socket;
+
+    static connectToHub() {
+        let protocol = Store.getState().settings.hubProtocol;
+        let host = Store.getState().settings.hubHost;
+        let port = Store.getState().settings.hubPort;
 
         Store.dispatch({
             type: CONNECTING_TO_HUB
         });
 
-        StatusBarIOS.setNetworkActivityIndicatorVisible(true);
+        RetroConnection.connect(protocol, host, port).then(() => {
+            console.log('connected');
 
-        // api call
-        fetch(`${protocol}${host}:${port}/api/connect`)
-            .then(response => {
-                response.json()
-            }, () => {
-
-                Store.dispatch({
-                    type: NOT_FOUND_HUB
-                });
-
-                StatusBarIOS.setNetworkActivityIndicatorVisible(false);
-
-            })
-            .then(json => {
-                // TODO add token and id;
-
-                Store.dispatch({
-                    type: SET_CONNECTION_LINK,
-                    value: `${protocol}${host}:${port}`
-                });
-
-                Promise.all([
-                    DashboardActions.fetchDashboard(),
-                    LocationActions.fetchLocations(),
-                    ItemActions.fetchItems()
-                ]).then(() => {
-
-                    if (isConnectedToCloud) {
-
-                        Store.dispatch({
-                            type: CONNECTED_TO_CLOUD
-                        });
-
-                    } else {
-
-                        Store.dispatch({
-                            type: CONNECTED_TO_HUB
-                        });
-
-                    }
-
-
-                    StatusBarIOS.setNetworkActivityIndicatorVisible(false);
-
-                });
+            // connected to hub
+            Store.dispatch({
+                type: SET_CONNECTION_LINK,
+                value: `${protocol}${host}:${port}`
             });
 
-    }
-
-    static connectToHub() {
-
-        let protocol = Store.getState().settings.hubProtocol;
-        let host = Store.getState().settings.hubHost;
-        let port = Store.getState().settings.hubPort;
-
-        SettingsActions.connect(protocol, host, port, false);
+            Store.dispatch({
+                type: CONNECTED_TO_HUB
+            });
+        }, () => {
+            // not connected
+            Store.dispatch({
+                type: NOT_FOUND_HUB
+            });
+        });
 
     }
 
     static connectToCloud() {
-
         let protocol = Store.getState().settings.cloudProtocol;
         let host = Store.getState().settings.cloudHost;
         let port = Store.getState().settings.cloudPort;
 
-        SettingsActions.connect(protocol, host, port, true);
+        Store.dispatch({
+            type: CONNECTING_TO_HUB
+        });
+
+        RetroConnection.connect(protocol, host, port).then(() => {
+            // connected to cloud
+            Store.dispatch({
+                type: SET_CONNECTION_LINK,
+                value: `${protocol}${host}:${port}`
+            });
+
+            Store.dispatch({
+                type: CONNECTED_TO_CLOUD
+            });
+        }, () => {
+            // not connected
+            Store.dispatch({
+                type: NOT_FOUND_HUB
+            });
+        });
 
     }
 

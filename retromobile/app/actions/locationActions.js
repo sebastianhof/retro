@@ -6,26 +6,12 @@ export const RECEIVE_LOCATIONS = 'RECEIVE_LOCATIONS';
 
 export class LocationActions {
 
-    /**
-     *
-     * Fetch locations
-     *
-     * @returns {Promise<U>|Promise.<T>}
-     */
-    static fetchLocations() {
+    static receiveLocations(locations) {
 
         Store.dispatch({
-            type: REQUEST_LOCATIONS
+            type: RECEIVE_LOCATIONS,
+            data: locations
         });
-
-        let connectionLink = Store.getState().settings.connectionLink;
-
-        return fetch(`${connectionLink}/api/locations`)
-            .then(response => response.json())
-            .then(json => Store.dispatch({
-                type: RECEIVE_LOCATIONS,
-                data: json.locations
-            }))
 
     }
 

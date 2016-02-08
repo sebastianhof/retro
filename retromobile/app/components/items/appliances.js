@@ -1,7 +1,7 @@
 'use strict';
 import React from  'react-native';
-import {CommandActions} from '../../actions/commandActions'
-import {CommandType} from '../../models/commandModel'
+import {ItemActions} from '../../actions/itemActions'
+import {ActType} from '../../models/commandModel'
 import itemStyles from './styles'
 
 var {
@@ -46,7 +46,7 @@ export class BodyWeightView extends React.Component {
 export class SwitchView extends React.Component {
 
     toggleSwitch(value) {
-        CommandActions.command(this.props.item, CommandType.SET_SWITCH, value);
+        ItemActions.act(this.props.item, ActType.SET_SWITCH, value);
     }
 
     render() {

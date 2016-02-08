@@ -123,7 +123,10 @@ class ItemsViewComponent extends React.Component {
             _.forEach(items, (item) => {
                 let location = _.find(locations, {id: item.locationId});
                 if (location == null) {
-                    locations.push(_.find(this.props.locations, {id: item.locationId}));
+                    let loc = _.find(this.props.locations, {id: item.locationId});
+                    if (loc != null) {
+                        locations.push();
+                    }
                 }
             });
             locations = _.sortBy(locations, 'title');
@@ -288,7 +291,7 @@ class ItemsViewComponent extends React.Component {
                                 return (<WindowContactView item={item} />);
                             case ItemType.WINDOW_SHUTTER:
                             default:
-                                return (<Text key={item.id}>{item.title}</Text>);
+                                return (<Text key={item.id}></Text>);
                         }
 
 

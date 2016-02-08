@@ -1,16 +1,30 @@
 {
   "name": "retro-web",
   "version": "0.0.1",
-  "description": "Integrated smart home application",
-  "main": "index.js",
+  "description": "Retro: Smart home control",
+  "license": "SEE LICENSE in LICENSE",
+  "author": "Sebastian Hof <mail@sebastianhof.com>",
+  "engines": {
+    "node": "5.0.0"
+  },
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.3",
-    "jade": "^1.11.0"
+    "express-session": "^1.13.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-ts": "^5.1.1",
+    "jsonwebtoken": "^5.5.4",
+    "lodash": "^4.0.0",
+    "node-schedule": "^0.6.0",
+    "socket.io": "^1.4.4",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {},
   "scripts": {
+    "buildserver": "grunt buildserver",
+    "postinstall": "npm run buildserver",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Sebastian Hof <mail@sebastianhof.com>",
-  "license": "Retro License"
+  }
 }

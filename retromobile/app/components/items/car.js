@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react-native';
-import {CommandActions} from '../../actions/commandActions'
-import {CommandType} from '../../models/commandModel'
+import {ItemActions} from '../../actions/itemActions'
+import {ActType} from '../../models/commandModel'
 import itemStyles from './styles'
 
 const CLOSED_COLOR = '#10CFBD';
@@ -18,7 +18,7 @@ var {
 export class GarageDoorView extends React.Component {
 
     toggleLock(value) {
-        CommandActions.command(this.props.item, CommandType.SET_LOCK, value);
+        ItemActions.act(this.props.item, ActType.SET_LOCK, value);
     }
 
     render() {

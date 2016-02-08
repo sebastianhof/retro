@@ -25,6 +25,8 @@
 		C42544681C3797E300D8C40C /* RetroDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42544671C3797E300D8C40C /* RetroDiscovery.swift */; };
 		C457F9481C3AD91900272F41 /* RetroDiscoveryBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = C457F9471C3AD91900272F41 /* RetroDiscoveryBridge.m */; };
 		C47E31EA1C310B29008E4F74 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C47E31E91C310B0A008E4F74 /* libRNVectorIcons.a */; };
+		C4C4E80F1C55448C0006ED9E /* RCTColorPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C4E80E1C55448C0006ED9E /* RCTColorPickerManager.m */; };
+		C4CD142A1C5541A400DEFC35 /* RCTColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CD14291C5541A400DEFC35 /* RCTColorPickerView.m */; };
 		C4D216471C3F9B560054B03F /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D216461C3F9B560054B03F /* HomeKit.framework */; };
 		C4D9144B1C300A7C00112C3E /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D914411C300A7C00112C3E /* OpenSans-Bold.ttf */; };
 		C4D9144C1C300A7C00112C3E /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4D914421C300A7C00112C3E /* OpenSans-BoldItalic.ttf */; };
@@ -166,6 +168,10 @@
 		C42544671C3797E300D8C40C /* RetroDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetroDiscovery.swift; sourceTree = "<group>"; };
 		C457F9471C3AD91900272F41 /* RetroDiscoveryBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetroDiscoveryBridge.m; sourceTree = "<group>"; };
 		C47E31DA1C310B0A008E4F74 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		C4C4E80E1C55448C0006ED9E /* RCTColorPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTColorPickerManager.m; sourceTree = "<group>"; };
+		C4C4E8111C5551E30006ED9E /* RCTColorPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTColorPickerManager.h; sourceTree = "<group>"; };
+		C4CD141C1C55419400DEFC35 /* RCTColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTColorPickerView.h; sourceTree = "<group>"; };
+		C4CD14291C5541A400DEFC35 /* RCTColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTColorPickerView.m; sourceTree = "<group>"; };
 		C4D216461C3F9B560054B03F /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		C4D216481C3F9B560054B03F /* retromobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = retromobile.entitlements; path = retromobile/retromobile.entitlements; sourceTree = "<group>"; };
 		C4D914411C300A7C00112C3E /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "resources/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -306,6 +312,10 @@
 				C42544671C3797E300D8C40C /* RetroDiscovery.swift */,
 				C42544661C3797E300D8C40C /* retromobile-Bridging-Header.h */,
 				C457F9471C3AD91900272F41 /* RetroDiscoveryBridge.m */,
+				C4CD141C1C55419400DEFC35 /* RCTColorPickerView.h */,
+				C4CD14291C5541A400DEFC35 /* RCTColorPickerView.m */,
+				C4C4E80E1C55448C0006ED9E /* RCTColorPickerManager.m */,
+				C4C4E8111C5551E30006ED9E /* RCTColorPickerManager.h */,
 			);
 			name = retromobile;
 			sourceTree = "<group>";
@@ -703,6 +713,8 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				C457F9481C3AD91900272F41 /* RetroDiscoveryBridge.m in Sources */,
+				C4C4E80F1C55448C0006ED9E /* RCTColorPickerManager.m in Sources */,
+				C4CD142A1C5541A400DEFC35 /* RCTColorPickerView.m in Sources */,
 				C42544681C3797E300D8C40C /* RetroDiscovery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

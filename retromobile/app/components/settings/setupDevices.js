@@ -27,11 +27,6 @@ var styles = StyleSheet.create({
 
 class SetupDevicesViewComponent extends React.Component {
 
-
-    componentDidMount() {
-        DeviceActions.fetchDevices();
-    }
-
     addDevice() {
 
     }

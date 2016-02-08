@@ -6,20 +6,12 @@ export const RECEIVE_RULES = 'RECEIVE_RULES';
 
 export class RuleActions {
 
-    static fetchRules() {
+    static receiveRules(rules) {
 
         Store.dispatch({
-            type: REQUEST_RULES
+            type: RECEIVE_RULES,
+            data: rules
         });
-
-        let connectionLink = Store.getState().settings.connectionLink;
-
-        return fetch(`${connectionLink}/api/rules`)
-            .then(response => response.json())
-            .then(json => Store.dispatch({
-                type: RECEIVE_RULES,
-                data: json.rules
-            }))
 
     }
 

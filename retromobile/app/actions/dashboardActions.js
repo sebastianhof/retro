@@ -8,20 +8,12 @@ export const RECEIVE_DASHBOARD = 'RECEIVE_DASHBOARD';
 
 export class DashboardActions {
 
-    static fetchDashboard() {
+    static receiveDashboard(dashboardItems) {
 
         Store.dispatch({
-            type: REQUEST_DASHBOARD
+            type: RECEIVE_DASHBOARD,
+            data: dashboardItems
         });
-
-        let connectionLink = Store.getState().settings.connectionLink;
-
-        return fetch(`${connectionLink}/api/dashboard`)
-            .then(response => response.json())
-            .then(json => Store.dispatch({
-                type: RECEIVE_DASHBOARD,
-                data: json.dashboardItems
-            }))
 
     }
 

@@ -1,13 +1,14 @@
 'use strict';
 import React from  'react-native';
-import {CommandActions} from '../../actions/commandActions'
-import {CommandType} from '../../models/commandModel'
+import {ItemActions} from '../../actions/itemActions'
+import {ActType} from '../../models/commandModel'
 import itemStyles from './styles'
 
 var {
     Text,
     View,
-    SliderIOS
+    SliderIOS,
+    PanResponder
     } = React;
 
 export class AirConditioningView extends React.Component {
@@ -32,8 +33,15 @@ export class AirPurifierView extends React.Component {
 
 export class ThermostatView extends React.Component {
 
+    componentWillMount() {
+        this.panResponder = PanResponder.create({
+            onPanResponderTerminationRequest: () => false,
+            onStartShouldSetPanResponderCapture: () => true
+        });
+    }
+
     handeSlideComplete(value) {
-        CommandActions.command(this.props.item, CommandType.SET_TEMP, value);
+        ItemActions.act(this.props.item, ActType.SET_TEMP, value);
     }
 
     render() {
@@ -76,7 +84,7 @@ export class ThermostatView extends React.Component {
                 {temperature}
                 {state}
             </View>
-            <SliderIOS style={itemStyles.itemSlider} minimumValue={0} maximumValue={values.maxTemp} value={values.temp}
+            <SliderIOS {...this.panResponder.panHandlers} style={itemStyles.itemSlider} minimumValue={0} maximumValue={values.maxTemp} value={values.temp}
                        minimumTrackTintColor="#ffffff" onSlidingComplete={this.handeSlideComplete.bind(this)}/>
         </View>);
 

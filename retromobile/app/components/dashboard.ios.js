@@ -31,8 +31,6 @@ var styles = StyleSheet.create({
     }
 });
 
-
-
 class DashboardViewComponent extends React.Component {
 
     state = {
