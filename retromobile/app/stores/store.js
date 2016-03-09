@@ -24,6 +24,6 @@ let combinedReducers = combineReducers({
 
 export var Store = createStore(combinedReducers);
 
-Store.subscribe(() =>
-    console.log(Store.getState())
-);
+//Store.subscribe(() =>
+//    console.log(Store.getState())
+//);

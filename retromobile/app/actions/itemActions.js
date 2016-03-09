@@ -21,28 +21,6 @@ export class ItemActions {
 
     }
 
-    static setFavorite(item, value) {
-
-        fetch(`${connectionLink}/api/items/${item.id}/favorite`, {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                value: value
-            })
-        }).then((item) => {
-
-            Store.dispatch({
-                type: UPDATE_ITEM,
-                item: item
-            });
-
-        });
-
-    }
-
     static act(item, commandType, value) {
 
         let clonedItem = _.cloneDeep(item);
@@ -99,6 +77,25 @@ export class ItemActions {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({})
+        });
+
+    }
+
+    static updateItem(item) {
+
+        let connectionLink = Store.getState().settings.connectionLink;
+
+        fetch(`${connectionLink}/api/items/${item.id}`, {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        }).then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            ItemActions.receiveItems(data.items);
         });
 
     }

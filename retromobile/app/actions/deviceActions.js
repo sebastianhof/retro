@@ -15,7 +15,24 @@ export class DeviceActions {
 
     }
 
+    static removeDevice(deviceId) {
 
+        let connectionLink = Store.getState().settings.connectionLink;
+
+        fetch(`${connectionLink}/api/devices/${deviceId}`, {
+            method: 'delete',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            DeviceActions.receiveDevices(data.devices);
+        });
+
+
+    }
 
 
 }
