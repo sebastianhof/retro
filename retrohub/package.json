@@ -1,0 +1,52 @@
+{
+  "name": "retro-hub",
+  "version": "0.0.1",
+  "description": "Retro: Smart home control",
+  "main": "server.js",
+  "license": "SEE LICENSE in LICENSE",
+  "author": "Sebastian Hof <mail@sebastianhof.com>",
+  "engines": {
+    "node": "5.0.0"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "bonjour": "^3.0.0",
+    "cookie-parser": "^1.4.0",
+    "cron": "^1.1.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "express-validator": "^2.19.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-ts": "^5.1.1",
+    "hls-buffer": "^0.1.5",
+    "jsonwebtoken": "^5.5.4",
+    "kue": "^0.10.5",
+    "lifx-api": "^1.0.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.11.1",
+    "nedb": "^1.4.0",
+    "netatmo": "https://github.com/sebastianhof/netatmo.git",
+    "node-hue-api": "^2.0.0",
+    "node-schedule": "^0.3.0",
+    "npm": "^3.5.1",
+    "oauth": "^0.9.14",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "q": "^1.4.1",
+    "redux": "^3.0.4",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.4",
+    "socketio": "^1.0.0",
+    "uuid": "^2.0.1",
+    "wemo": "^0.2.1",
+    "wemo-client": "^0.4.0",
+    "withings-lib": "^0.2.2"
+  },
+  "scripts": {
+    "buildserver": "grunt buildserver",
+    "postinstall": "npm run buildserver",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
